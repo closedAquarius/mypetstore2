@@ -1,3 +1,7 @@
+#IDEA的工程文件
+.idea
+
+#Web项目的out目录
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -49,6 +53,7 @@ cmake-build-*/
 # IntelliJ
 out/
 
+mypetstore.iml
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
