@@ -43,7 +43,7 @@
 
         <tr>
             <td>
-            <a href="#" class="Button">Add to Cart</a>
+            <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>
             </td>
         </tr>
     </table>
