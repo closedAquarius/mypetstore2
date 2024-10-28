@@ -19,24 +19,27 @@ public class AddItemToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        String isAdd=session.getAttribute("isAdd").toString();
         String workingItemId = req.getParameter("workingItemId");
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
             cart = new Cart();
         }
-
-        if (cart.containsItemId(workingItemId)) {
-            cart.incrementQuantityByItemId(workingItemId);
-            //包含则增加数量
-        } else {
-            CatalogService catalogService = new CatalogService();
-            // isInStock is a "real-time" property that must be updated
-            // every time an item is added to the cart, even if other
-            // item details are cached.
-            boolean isInStock = catalogService.isItemInStock(workingItemId);
-            Item item = catalogService.getItem(workingItemId);
-            cart.addItem(item, isInStock);
+        if(isAdd.equals("true")) {
+            if (cart.containsItemId(workingItemId)) {
+                cart.incrementQuantityByItemId(workingItemId);
+                //包含则增加数量
+            } else {
+                CatalogService catalogService = new CatalogService();
+                // isInStock is a "real-time" property that must be updated
+                // every time an item is added to the cart, even if other
+                // item details are cached.
+                boolean isInStock = catalogService.isItemInStock(workingItemId);
+                Item item = catalogService.getItem(workingItemId);
+                cart.addItem(item, isInStock);
+            }
         }
+        session.setAttribute("isAdd", "false");
         session.setAttribute("cart", cart);
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
     }

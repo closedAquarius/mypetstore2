@@ -25,6 +25,7 @@ public class ItemFormServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         //req.setAttribute("item", item);
+        session.setAttribute("isAdd","true");
         session.setAttribute("item", item);
         session.setAttribute("product", product);
         req.getRequestDispatcher(ITEM_FORM).forward(req, resp);

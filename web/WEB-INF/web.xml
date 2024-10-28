@@ -75,4 +75,76 @@
         <servlet-name>CartFormServlet</servlet-name>
         <url-pattern>/cartForm</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SignOnFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOnFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOnFormServlet</servlet-name>
+        <url-pattern>/signOnForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <url-pattern>/newOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SignOnServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignOnServlet</servlet-name>
+        <url-pattern>/signOn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/registerForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.EditFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditFormServlet</servlet-name>
+        <url-pattern>/editForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ListOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListOrderFormServlet</servlet-name>
+        <url-pattern>/listOrderForm</url-pattern>
+    </servlet-mapping>
 </web-app>
