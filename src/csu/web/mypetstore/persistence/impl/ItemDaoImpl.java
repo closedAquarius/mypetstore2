@@ -61,17 +61,21 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public void updateInventoryQuantity(Map<String, Object> param) {
-        try {
-            Connection connection= DBUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_INVENTORY_QUANTITY);
+        try
+        {
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatementStatement = connection.prepareStatement(UPDATE_INVENTORY_QUANTITY);
             String itemId = param.keySet().iterator().next();
-            Integer increment = (Integer) param.get(itemId);
-            preparedStatement.setInt(1, increment.intValue());
-            preparedStatement.setString(2, itemId);
-            preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            preparedStatementStatement.setString(1,param.get("increment").toString());
+            preparedStatementStatement.setString(2,itemId);
+            preparedStatementStatement.execute();
+
+            DBUtil.closePreparedStatement(preparedStatementStatement);
             DBUtil.closeConnection(connection);
-        }catch (Exception e) {
+
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }

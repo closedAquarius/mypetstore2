@@ -9,7 +9,9 @@
 
 <div id="Welcome">
     <div id="WelcomeContent">
-        <!-- 用户登录的firstname -->
+        <c:if test="${sessionScope.loginAccount != null }">
+                Welcome ${sessionScope.loginAccount.firstName}!
+        </c:if>
     </div>
 </div>
 

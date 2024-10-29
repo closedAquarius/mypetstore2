@@ -11,8 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LineItemDaoImpl implements LineItemDao {
-    private static final String getLineItemBylineItemIdString =
-            "SELECT lineItemID, LINENUM AS lineNumber, ITEMID, QUANTITY, UNITPRICEFROM LINEITEM WHERE lineItemID = ?";
+    private static final String GET_LINE_ITEMS_BY_ORDER_ID =
+            "SELECT\n" +
+                    "      ORDERID,\n" +
+                    "      LINENUM AS lineNumber,\n" +
+                    "      ITEMID,\n" +
+                    "      QUANTITY,\n" +
+                    "      UNITPRICE\n" +
+                    "    FROM LINEITEM\n" +
+                    "    WHERE ORDERID = ?";
     private static final String insertLineItemString =
             "INSERT INTO LINEITEM (ORDERID, LINENUM, ITEMID, QUANTITY, UNITPRICE) VALUES (?, ?, ?, ?, ?)";
 
@@ -23,8 +30,9 @@ public class LineItemDaoImpl implements LineItemDao {
         try
         {
             Connection connection = DBUtil.getConnection();
-            PreparedStatement preparedStatementStatement = connection.prepareStatement(getLineItemBylineItemIdString);
+            PreparedStatement preparedStatementStatement = connection.prepareStatement(GET_LINE_ITEMS_BY_ORDER_ID);
             preparedStatementStatement.setString(1,orderId +"");
+            System.out.println(orderId);
             ResultSet resultSet = preparedStatementStatement.executeQuery();
             while(resultSet.next())
             {

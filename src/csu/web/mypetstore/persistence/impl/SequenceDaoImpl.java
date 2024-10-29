@@ -50,7 +50,7 @@ public class SequenceDaoImpl implements SequenceDao {
             PreparedStatement preparedStatementStatement = connection.prepareStatement(updateSequenceString);
             preparedStatementStatement.setString(1,sequence.getNextId()+"");
             preparedStatementStatement.setString(2,sequence.getName());
-
+            preparedStatementStatement.executeUpdate();
             DBUtil.closePreparedStatement(preparedStatementStatement);
             DBUtil.closeConnection(connection);
         }

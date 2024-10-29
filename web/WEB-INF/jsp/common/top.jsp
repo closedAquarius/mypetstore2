@@ -31,7 +31,7 @@
                 <img align="middle" src="images/separator.gif" />
             </c:if>
             <c:if test="${sessionScope.loginAccount !=null}">
-                <a href="#">Sign Out</a>
+                <a href="signOff">Sign Out</a>
                 <img align="middle" src="images/separator.gif" />
                 <a href="editForm">My Account</a>
                 <img align="middle" src="images/separator.gif" />
@@ -49,15 +49,15 @@
     </div>
 
     <div id="QuickLinks">
-        <a href="#"><img src="images/sm_fish.gif" /></a>
+        <a href="categoryForm?categoryId=FISH"><img src="images/sm_fish.gif" /></a>
         <img src="images/separator.gif" />
-        <a href="#"><img src="images/sm_dogs.gif" /></a>
+        <a href="categoryForm?categoryId=DOGS"><img src="images/sm_dogs.gif" /></a>
         <img src="images/separator.gif" />
-        <a href="#"><img src="images/sm_reptiles.gif" /></a>
+        <a href="categoryForm?categoryId=REPTILES"><img src="images/sm_reptiles.gif" /></a>
         <img src="images/separator.gif" />
-        <a href="#"><img src="images/sm_cats.gif" /></a>
+        <a href="categoryForm?categoryId=CATS"><img src="images/sm_cats.gif" /></a>
         <img src="images/separator.gif" />
-        <a href="#"><img src="images/sm_birds.gif" /></a>
+        <a href="categoryForm?categoryId=BIRDS"><img src="images/sm_birds.gif" /></a>
         <img src="images/separator.gif" />
     </div>
 

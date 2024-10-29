@@ -17,10 +17,10 @@
         <th>Total Price</th>
     </tr>
 
-    <c:forEach var="order" items="${sessionScope.orderList}">
+    <c:forEach var="order" items="${requestScope.orderList}">
         <tr>
             <td>
-            <a href="">${order.orderId}</a>
+            <a href="viewOrder?orderId=${order.orderId}">${order.orderId}</a>
             </td>
             <td><fmt:formatDate value="${order.orderDate}"
                                 pattern="yyyy/MM/dd hh:mm:ss" /></td>

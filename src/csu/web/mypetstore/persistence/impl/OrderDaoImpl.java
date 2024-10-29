@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
-    private static final String getOrderByIdString =
+
+    private static final String GET_ORDER_BY_ID =
             "select BILLADDR1 AS billAddress1, BILLADDR2 AS billAddress2, " +
                     "BILLCITY, BILLCOUNTRY, BILLSTATE, BILLTOFIRSTNAME, BILLTOLASTNAME, BILLZIP, " +
                     "SHIPADDR1 AS shipAddress1, SHIPADDR2 AS shipAddress2, " +
@@ -20,7 +21,7 @@ public class OrderDaoImpl implements OrderDao {
                     "SHIPZIP, CARDTYPE, COURIER, CREDITCARD, EXPRDATE AS expiryDate, " +
                     "LOCALE, ORDERDATE, ORDERS.ORDERID, TOTALPRICE, USERID AS username, STATUS " +
                     "FROM ORDERS, ORDERSTATUS WHERE ORDERS.ORDERID = ? AND ORDERS.ORDERID = ORDERSTATUS.ORDERID";
-    private static final String getOrderByUsernameString =
+    private static final String GET_ORDER_BY_USERNAME =
             "SELECT BILLADDR1 AS billAddress1, BILLADDR2 AS billAddress2, " +
                     "BILLCITY, BILLCOUNTRY, BILLSTATE, BILLTOFIRSTNAME, BILLTOLASTNAME, " +
                     "BILLZIP, SHIPADDR1 AS shipAddress1, SHIPADDR2 AS shipAddress2, " +
@@ -29,7 +30,7 @@ public class OrderDaoImpl implements OrderDao {
                     "LOCALE, ORDERDATE, ORDERS.ORDERID, TOTALPRICE, USERID AS username, STATUS " +
                     "FROM ORDERS, ORDERSTATUS WHERE ORDERS.USERID = ? AND ORDERS.ORDERID = ORDERSTATUS.ORDERID " +
                     "ORDER BY ORDERDATE";
-    private static final String insertOrderString =
+    private static final String INSERT_ORDER =
             "INSERT INTO ORDERS (ORDERID, USERID, ORDERDATE, SHIPADDR1, SHIPADDR2, SHIPCITY, " +
                     "SHIPSTATE, SHIPZIP, SHIPCOUNTRY, BILLADDR1, BILLADDR2, BILLCITY, BILLSTATE, " +
                     "BILLZIP, BILLCOUNTRY, COURIER, TOTALPRICE, BILLTOFIRSTNAME, " +
@@ -39,7 +40,7 @@ public class OrderDaoImpl implements OrderDao {
                     "?, ?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?)";
 
-    private static final String insertOrderStatusString =
+    private static final String INSERT_ORDER_STATUS =
             "INSERT INTO ORDERSTATUS (ORDERID, LINENUM, TIMESTAMP, STATUS) VALUES (?,?,?,?)";
 
     @Override
@@ -49,7 +50,7 @@ public class OrderDaoImpl implements OrderDao {
         try
         {
             Connection connection = DBUtil.getConnection();
-            PreparedStatement preparedStatementStatement = connection.prepareStatement(getOrderByUsernameString);
+            PreparedStatement preparedStatementStatement = connection.prepareStatement(GET_ORDER_BY_USERNAME);
             preparedStatementStatement.setString(1,username);
             ResultSet resultSet = preparedStatementStatement.executeQuery();
             while(resultSet.next())
@@ -98,7 +99,52 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public Order getOrder(int orderId)
     {
-        return null;
+        Order order = new Order();
+        try
+        {
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatementStatement = connection.prepareStatement(GET_ORDER_BY_ID);
+            preparedStatementStatement.setString(1,orderId+"");
+            ResultSet resultSet = preparedStatementStatement.executeQuery();
+            if (resultSet.next())
+            {
+                order.setBillAddress1(resultSet.getString(1));
+                order.setBillAddress2(resultSet.getString(2));
+                order.setBillCity(resultSet.getString(3));
+                order.setBillCountry(resultSet.getString(4));
+                order.setBillState(resultSet.getString(5));
+                order.setBillToFirstName(resultSet.getString(6));
+                order.setBillToLastName(resultSet.getString(7));
+                order.setBillZip(resultSet.getString(8));
+                order.setShipAddress1(resultSet.getString(9));
+                order.setShipAddress2(resultSet.getString(10));
+                order.setShipCity(resultSet.getString(11));
+                order.setShipCountry(resultSet.getString(12));
+                order.setShipState(resultSet.getString(13));
+                order.setShipToFirstName(resultSet.getString(14));
+                order.setShipToLastName(resultSet.getString(15));
+                order.setShipZip(resultSet.getString(16));
+                order.setCardType(resultSet.getString(17));
+                order.setCourier(resultSet.getString(18));
+                order.setCreditCard(resultSet.getString(19));
+                order.setExpiryDate(resultSet.getString(20));
+                order.setLocale(resultSet.getString(21));
+                order.setOrderDate(resultSet.getDate(22));
+                order.setOrderId(resultSet.getInt(23));
+                order.setTotalPrice(resultSet.getBigDecimal(24));
+                order.setUsername(resultSet.getString(25));
+                order.setStatus(resultSet.getString(26));
+            }
+
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatementStatement);
+            DBUtil.closeConnection(connection);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return order;
     }
 
     @Override
@@ -109,7 +155,7 @@ public class OrderDaoImpl implements OrderDao {
             SimpleDateFormat formatTime =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  //这是24时
             String orderDate= formatTime.format(order.getOrderDate());
             Connection connection = DBUtil.getConnection();
-            PreparedStatement pStatement = connection.prepareStatement(insertOrderString);
+            PreparedStatement pStatement = connection.prepareStatement(INSERT_ORDER);
 
             pStatement.setString(1,order.getOrderId()+"");
             pStatement.setString(2,order.getUsername());
@@ -136,6 +182,7 @@ public class OrderDaoImpl implements OrderDao {
             pStatement.setString(23,order.getExpiryDate());
             pStatement.setString(24,order.getCardType());
             pStatement.setString(25,order.getLocale());
+            pStatement.execute();
 
             DBUtil.closePreparedStatement(pStatement);
             DBUtil.closeConnection(connection);
@@ -149,6 +196,26 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public void insertOrderStatus(Order order)
     {
+        try
+        {
+            SimpleDateFormat formatTime =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  //这是24时
+            String orderDate= formatTime.format(order.getOrderDate());
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement pStatement = connection.prepareStatement(INSERT_ORDER_STATUS);
 
+            pStatement.setString(1,order.getOrderId()+"");
+            pStatement.setString(2, String.valueOf(order.getLineItems().get(0).getLineNumber()));
+            pStatement.setString(3,orderDate);
+            pStatement.setString(4,order.getStatus());
+
+            pStatement.execute();
+
+            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closeConnection(connection);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
