@@ -17,6 +17,9 @@
         </c:if>
         <p>Username:<input type="text" name="username"> <br />
             Password:<input type="password" name="password"></p>
+
+        <input type="text" name="captchaInput">
+        <img src="getCaptcha" alt="验证码"><br />
         <input type="submit" value="Login">
     </form>
 

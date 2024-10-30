@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RegisterServlet extends HttpServlet {
@@ -59,8 +60,10 @@ public class RegisterServlet extends HttpServlet {
         if(!validate()){
             req.setAttribute("registerMsg", registerMsg);
             req.getRequestDispatcher(REGISTER_FORM).forward(req, resp);
-        }
-        else {
+        } else if (!judgeCaptcha(req)) {
+            req.setAttribute("registerMsg", registerMsg);
+            req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+        } else {
             AccountService accountService = new AccountService();
             registerAccount.setUsername(username);
             registerAccount.setPassword(password);
@@ -99,6 +102,21 @@ public class RegisterServlet extends HttpServlet {
             return false;
         }
         //其他校验
+        return true;
+    }
+
+    private boolean judgeCaptcha(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        String captcha = (String) session.getAttribute("captcha");
+        String captchaInput= (String) req.getParameter("captchaInput");
+        if(captchaInput==null || captchaInput.equals("")){
+            this.registerMsg="请输入验证码";
+            return false;
+        }
+        else if(!captcha.equals(captchaInput)){
+            this.registerMsg="验证码不正确";
+            return false;
+        }
         return true;
     }
 }

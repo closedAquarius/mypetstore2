@@ -37,7 +37,10 @@ public class SignOnServlet extends HttpServlet {
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
-            }else {
+            } else if (!judgeCaptcha(req)) {
+                req.setAttribute("signOnMsg", msg);
+                req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
+            } else {
                 loginAccount.setPassword(null);
                 HttpSession session = req.getSession();
                 session.setAttribute("loginAccount", loginAccount);
@@ -66,6 +69,21 @@ public class SignOnServlet extends HttpServlet {
             return false;
         }
         //其他校验
+        return true;
+    }
+
+    private boolean judgeCaptcha(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        String captcha = (String) session.getAttribute("captcha");
+        String captchaInput= (String) req.getParameter("captchaInput");
+        if(captchaInput==null || captchaInput.equals("")){
+            this.msg="请输入验证码";
+            return false;
+        }
+        else if(!captcha.equals(captchaInput)){
+            this.msg="验证码不正确";
+            return false;
+        }
         return true;
     }
 }

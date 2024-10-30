@@ -183,4 +183,13 @@
         <servlet-name>SignOffServlet</servlet-name>
         <url-pattern>/signOff</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCaptchaServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.GetCaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetCaptchaServlet</servlet-name>
+        <url-pattern>/getCaptcha</url-pattern>
+    </servlet-mapping>
 </web-app>

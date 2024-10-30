@@ -29,7 +29,8 @@
         </table>
 
         <%@ include file="includeAccount.jsp"%>
-
+        <input type="text" name="captchaInput">
+        <img src="getCaptcha" alt="验证码"><br />
         <input type="submit" value="Save Account Information">
     </form>
 
