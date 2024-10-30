@@ -41,8 +41,8 @@ public class CartDaoImpl implements CartDao {
             Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(UPDATE_CART);
             ps.setInt(1, cartItem.getQuantity());
-            ps.setString(2,userId);
-            ps.setString(3,cartItem.getItem().getItemId());
+            ps.setString(3,userId);
+            ps.setString(2,cartItem.getItem().getItemId());
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
@@ -103,7 +103,7 @@ public class CartDaoImpl implements CartDao {
         return cart;
     }
 
-   /* public static void main(String[] args) {
+    public static void main(String[] args) {
         CatalogService catalogService=new CatalogService();
         Item item=catalogService.getItem("EST-1");
         CartItem cartItem=new CartItem();
@@ -111,6 +111,8 @@ public class CartDaoImpl implements CartDao {
         cartItem.setQuantity(1);
         CartDao cartDao=new CartDaoImpl();
         //cartDao.addItem("1",cartItem);
-        cartDao.deleteCart("1");
-    }*/
+        //cartDao.deleteCart("1");
+        cartItem.setQuantity(2);
+        cartDao.updateCart("1",cartItem);
+    }
 }
