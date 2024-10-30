@@ -5,15 +5,17 @@ import csu.web.mypetstore.persistence.AccountDao;
 import csu.web.mypetstore.persistence.impl.AccountDaoImpl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class AccountService{
     private static final List<String> LANGUAGE_LIST;
     private static final List<String> CATEGORY_LIST;
-    static {
-        LANGUAGE_LIST = List.of("english", "japanese");
-        CATEGORY_LIST = List.of("FISH", "DOGS", "REPTILES", "CATS", "BIRDS");
+    static
+    {
+        LANGUAGE_LIST = Arrays.asList("english", "japanese");
+        CATEGORY_LIST = Arrays.asList("FISH", "DOGS", "REPTILES", "CATS", "BIRDS");
     }
     private AccountDao accountDao;
     public AccountService(){
