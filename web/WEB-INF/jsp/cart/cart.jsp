@@ -27,6 +27,7 @@
                     <th><b>Quantity</b></th>
                     <th><b>List Price</b></th>
                     <th><b>Total Cost</b></th>
+                    <th>&nbsp;</th>
                 </tr>
 
                 <c:if test="${sessionScope.cart.numberOfItems == 0}">
@@ -37,6 +38,7 @@
 
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
                     <tr>
+                        <td>
                         <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
                         </td>
                         <td>${cartItem.item.product.productId}</td>
@@ -57,7 +59,7 @@
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td colspan="7">
+                    <td colspan="8">
                         Sub Total: <fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
                         <input type="submit" value="Update Cart">
                     </td>

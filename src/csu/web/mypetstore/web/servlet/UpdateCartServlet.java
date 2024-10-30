@@ -32,7 +32,7 @@ public class UpdateCartServlet extends HttpServlet {
                     cartItems.remove();
                 }
             } catch (Exception e) {
-                //ignore parse exceptions on purpose
+                e.printStackTrace();
             }
         }
         req.getRequestDispatcher(CART_FORM).forward(req, resp);
