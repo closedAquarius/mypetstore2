@@ -192,4 +192,13 @@
         <servlet-name>GetCaptchaServlet</servlet-name>
         <url-pattern>/getCaptcha</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <url-pattern>/searchForm</url-pattern>
+    </servlet-mapping>
 </web-app>
