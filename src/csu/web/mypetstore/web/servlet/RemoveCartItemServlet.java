@@ -39,6 +39,10 @@ public class RemoveCartItemServlet extends HttpServlet {
         else
         {
             cartDao.deleteItem(account.getUsername(),cartItem);
+
+            Cart newCart = cartDao.getCart(account.getUsername());
+            session.setAttribute("cart", newCart);
+
             req.getRequestDispatcher(CART_FORM).forward(req, resp);
         }
     }
