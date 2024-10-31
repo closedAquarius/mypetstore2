@@ -74,4 +74,14 @@ public class Cart {
         }
         return subTotal;
     }
+
+    public List<CartItem> getItemList()
+    {
+        return itemList;
+    }
+
+    public Map<String, CartItem> getItemMap()
+    {
+        return itemMap;
+    }
 }

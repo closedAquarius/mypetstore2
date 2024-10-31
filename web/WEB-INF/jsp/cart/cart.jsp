@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 23837
-  Date: 2024/10/25
-  Time: 上午10:12
-  To change this template use File | Settings | File Templates.
---%>
 <%@ include file="../common/top.jsp"%>
 
 <div id="BackLink">
@@ -44,7 +37,7 @@
                         <td>${cartItem.item.product.productId}</td>
                         <td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
                                 ${cartItem.item.attribute3} ${cartItem.item.attribute4}
-                                ${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
+                                ${cartItem.item.attribute5} ${cartItem.item.product.name}<</td>
                         <td>${cartItem.inStock}</td>
                         <td>
                             <input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}">

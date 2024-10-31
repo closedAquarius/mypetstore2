@@ -4,7 +4,8 @@ import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.CartItem;
 import csu.web.mypetstore.domain.Item;
 
-public interface CartDao {
+public interface CartDao
+{
     void addItem(String userId, CartItem cartItem);
 
     void updateCart(String userId, CartItem cartItem);
@@ -14,5 +15,4 @@ public interface CartDao {
     void deleteItem(String userId, CartItem cartItem);
 
     Cart getCart(String userId);
-
 }

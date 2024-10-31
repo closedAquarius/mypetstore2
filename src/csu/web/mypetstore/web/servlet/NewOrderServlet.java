@@ -3,6 +3,8 @@ package csu.web.mypetstore.web.servlet;
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Order;
+import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.impl.CartDaoImpl;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ public class NewOrderServlet extends HttpServlet {
     private static final String VIEW_ORDER = "/WEB-INF/jsp/order/viewOrder.jsp";
 
     OrderService orderService = new OrderService();
+    CartDao cartDao = new CartDaoImpl();
     private Account account;
     private Cart cart;
     private Order order;
@@ -28,7 +31,7 @@ public class NewOrderServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ServletException, IOException {
         HttpSession session = request.getSession();
-        account = (Account)session.getAttribute("account");
+        account = (Account) session.getAttribute("loginAccount");
         cart = (Cart)session.getAttribute("cart");
         order = (Order)session.getAttribute("order");
         //newOrderFormSubmited = (boolean)session.getAttribute("newOrderFormSubmited");
@@ -71,6 +74,8 @@ public class NewOrderServlet extends HttpServlet {
             System.out.println(order.getShipAddress2());
             System.out.println(order.getShipCity());
             session.setAttribute("cart",null);
+            cartDao.deleteCart(account.getUsername());
+
             request.getRequestDispatcher(VIEW_ORDER).forward(request,response);
         }
         else

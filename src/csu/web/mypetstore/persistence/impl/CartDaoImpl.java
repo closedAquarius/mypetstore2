@@ -12,7 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class CartDaoImpl implements CartDao {
+public class CartDaoImpl implements CartDao
+{
     private String ADD_ITEM="insert into cart values(?,?,?)";
     private String UPDATE_CART="update cart set quantity=? where itemid=? and userid=?";
     private String DELETE_CART="delete from cart where  userid=?";
@@ -20,8 +21,10 @@ public class CartDaoImpl implements CartDao {
     private String SELECT_CART="select * from cart where userid=?";
 
     @Override
-    public void addItem(String userId, CartItem cartItem) {
-        try {
+    public void addItem(String userId, CartItem cartItem) 
+    {
+        try
+        {
             Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(ADD_ITEM);
             ps.setString(1, cartItem.getItem().getItemId());
@@ -30,43 +33,54 @@ public class CartDaoImpl implements CartDao {
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void updateCart(String userId, CartItem cartItem) {
-        try {
+    public void updateCart(String userId, CartItem cartItem)
+    {
+        try
+        {
             Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(UPDATE_CART);
             ps.setInt(1, cartItem.getQuantity());
-            ps.setString(2,userId);
-            ps.setString(3,cartItem.getItem().getItemId());
+            ps.setString(3,userId);
+            ps.setString(2,cartItem.getItem().getItemId());
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void deleteCart(String userId) {
-        try {
+    public void deleteCart(String userId) 
+    {
+        try 
+        {
             Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(DELETE_CART);
             ps.setString(1,userId);
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void deleteItem(String userId, CartItem cartItem) {
+    public void deleteItem(String userId, CartItem cartItem) 
+    {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement(DELETE_ITEM);
@@ -81,7 +95,8 @@ public class CartDaoImpl implements CartDao {
     }
 
     @Override
-    public Cart getCart(String userId) {
+    public Cart getCart(String userId)
+    {
         Cart cart=new Cart();
         try {
             Connection connection = DBUtil.getConnection();
@@ -97,7 +112,9 @@ public class CartDaoImpl implements CartDao {
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
         return cart;
