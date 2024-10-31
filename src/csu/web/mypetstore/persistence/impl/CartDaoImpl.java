@@ -50,6 +50,10 @@ public class CartDaoImpl implements CartDao
             ps.setInt(1, cartItem.getQuantity());
             ps.setString(3,userId);
             ps.setString(2,cartItem.getItem().getItemId());
+            //System.out.println("begin update");
+            //System.out.println(cartItem.getQuantity());
+            //System.out.println(userId);
+            //System.out.println(cartItem.getItem().getItemId());
             ps.execute();
             DBUtil.closePreparedStatement(ps);
             DBUtil.closeConnection(connection);
@@ -107,6 +111,7 @@ public class CartDaoImpl implements CartDao
             while(resultSet.next()){
                 Item item=catalogService.getItem(resultSet.getString("itemid"));
                 boolean isInStock = catalogService.isItemInStock(item.getItemId());
+                item.setQuantity(resultSet.getInt("quantity")-1);
                 cart.addItem(item,isInStock);
             }
             ps.execute();

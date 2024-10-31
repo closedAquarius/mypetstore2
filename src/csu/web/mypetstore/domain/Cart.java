@@ -1,6 +1,7 @@
 package csu.web.mypetstore.domain;
 
 import java.math.BigDecimal;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Cart {
@@ -31,15 +32,18 @@ public class Cart {
 
     public void addItem(Item item, boolean isInStock) {
         CartItem cartItem = (CartItem) itemMap.get(item.getItemId());
+        //System.out.println("before add:"+item.getQuantity());
         if (cartItem == null) {
             cartItem = new CartItem();
             cartItem.setItem(item);
-            cartItem.setQuantity(0);
+            cartItem.setQuantity(item.getQuantity());
             cartItem.setInStock(isInStock);
             itemMap.put(item.getItemId(), cartItem);
             itemList.add(cartItem);
         }
         cartItem.incrementQuantity();
+
+        //System.out.println("add item, quantity: " + cartItem.getQuantity());
     }
 
     public Item removeItemById(String itemId) {
