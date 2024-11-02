@@ -28,6 +28,7 @@
             Lizards, Turtles, Snakes <br />
             <a href="categoryForm?categoryId=DOGS"><img src="images/birds_icon.gif" /></a><br/>
             Exotic Varieties <br />
+            <p><a href="categoryForm?categoryId=${sessionScope.allCategories}">${sessionScope.allCategories}</a> is gaining more attention</p>
         </div>
     </div>
 

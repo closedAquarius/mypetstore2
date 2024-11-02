@@ -12,6 +12,12 @@ import java.util.List;
 public class AccountService{
     private static final List<String> LANGUAGE_LIST;
     private static final List<String> CATEGORY_LIST;
+    private static final int BIRDS=0;
+    private static final int CATS=1;
+    private static final int DOGS=2;
+    private static final int FISH=3;
+    private static final int REPTILES=4;
+
     static
     {
         LANGUAGE_LIST = Arrays.asList("english", "japanese");
@@ -58,5 +64,25 @@ public class AccountService{
 
     public void updateProfileFavcategory(String favouriteCategoryId, Account account){
         accountDao.updateProfileFavcategory(favouriteCategoryId,account.getUsername());
+    }
+
+    public String getAllFavcategory(){
+        ArrayList<String> list=accountDao.getAllFavcategory();
+        String[] categories={"BIRDS","CATS","DOGS","FISH","REPTILES"};
+        int[] count={0,0,0,0,0};
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).equals("BIRDS")) count[0]++;
+            if(list.get(i).equals("CATS")) count[1]++;
+            if(list.get(i).equals("DOGS")) count[2]++;
+            if(list.get(i).equals("FISH")) count[3]++;
+            if(list.get(i).equals("REPTILES")) count[4]++;
+        }
+        int j=0;
+        for(int i=0;i<categories.length-1;i++){
+            if(count[i]<count[i+1]){
+                j=i+1;
+            }
+        }
+        return categories[j];
     }
 }

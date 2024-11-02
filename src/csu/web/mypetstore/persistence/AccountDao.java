@@ -2,6 +2,8 @@ package csu.web.mypetstore.persistence;
 
 import csu.web.mypetstore.domain.Account;
 
+import java.util.ArrayList;
+
 public interface AccountDao {
     Account getAccountByUsername(String username);
 
@@ -19,5 +21,7 @@ public interface AccountDao {
 
     void updateSignon(Account account);
 
-    public void updateProfileFavcategory(String favouriteCategoryId, String username);
+    void updateProfileFavcategory(String favouriteCategoryId, String username);
+
+    ArrayList<String> getAllFavcategory();
 }

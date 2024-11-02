@@ -4,10 +4,8 @@ import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.persistence.AccountDao;
 import csu.web.mypetstore.persistence.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class AccountDaoImpl implements AccountDao {
 
@@ -92,6 +90,8 @@ public class AccountDaoImpl implements AccountDao {
             " MYLISTOPT = ?,\n" +
             "BANNEROPT = ?\n" +
             "    WHERE USERID = ?";
+    private final static String GET_ALL_FAVCATEGORY =
+            "SELECT FAVCATEGORY FROM PROFILE";
 
     @Override
     public Account getAccountByUsername(String username) {
@@ -282,7 +282,27 @@ public class AccountDaoImpl implements AccountDao {
         }
     }
 
-   /* public static void main(String[] args) {
+    @Override
+    public ArrayList<String> getAllFavcategory() {
+        ArrayList<String> AllFavcategory=new ArrayList<String>();
+        try {
+            Connection connection= DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(GET_ALL_FAVCATEGORY);
+            while(resultSet.next()){
+                AllFavcategory.add(resultSet.getString(1));
+            }
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeStatement(statement);
+            DBUtil.closeConnection(connection);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return AllFavcategory;
+    }
+
+
+    /* public static void main(String[] args) {
         AccountDao accountDao = new AccountDaoImpl();
         Account account = new Account();
         account.setUsername("j2ee");
@@ -290,8 +310,8 @@ public class AccountDaoImpl implements AccountDao {
         Account result = accountDao.getAccountByUsernameAndPassword(account);
         System.out.println("sucess");
     }*/
-   public static void main(String[] args) {
+   /*public static void main(String[] args) {
        AccountDao accountDao = new AccountDaoImpl();
        accountDao.updateProfileFavcategory("CATS","yyy");
-   }
+   }*/
 }

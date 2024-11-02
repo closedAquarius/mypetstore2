@@ -16,6 +16,7 @@ public class MainFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        session.setAttribute("allCategories",accountService.getAllFavcategory());
         session.setAttribute("languages",accountService.getLanguages());
         session.setAttribute("categories",accountService.getCategories());
         req.getRequestDispatcher(MAIN_FORM).forward(req, resp);
