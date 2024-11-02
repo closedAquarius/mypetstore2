@@ -4,7 +4,9 @@ import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Order;
 import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.JournalDao;
 import csu.web.mypetstore.persistence.impl.CartDaoImpl;
+import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class NewOrderServlet extends HttpServlet {
     private static final String SHIP_ADDRESS = "/WEB-INF/jsp/order/shipAddress.jsp";
@@ -69,12 +73,17 @@ public class NewOrderServlet extends HttpServlet {
             session.setAttribute("confirmed",confirmed);
 
             orderService.insertOrder(order);
-            System.out.println(order.getOrderId());
-            System.out.println(order.getShipAddress1());
-            System.out.println(order.getShipAddress2());
-            System.out.println(order.getShipCity());
             session.setAttribute("cart",null);
             cartDao.deleteCart(account.getUsername());
+
+            JournalDao journalDao = new JournalDaoImpl();
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String currentDate = formatter.format(date);
+            String addOrderString = "User "+ account.getUsername() + " added a new order "
+                    + "<a href=\"viewOrder?orderId=" + order.getOrderId() + "\">"
+                    + order.getOrderId() + "</a>.";
+            journalDao.updateJournal(account.getUsername(), addOrderString, currentDate, "#ED7D31");
 
             request.getRequestDispatcher(VIEW_ORDER).forward(request,response);
         }
