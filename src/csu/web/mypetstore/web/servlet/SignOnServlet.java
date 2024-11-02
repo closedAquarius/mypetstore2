@@ -2,6 +2,8 @@ package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Product;
+import csu.web.mypetstore.persistence.JournalDao;
+import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
 import csu.web.mypetstore.service.AccountService;
 import csu.web.mypetstore.service.CatalogService;
 
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class SignOnServlet extends HttpServlet {
@@ -49,6 +53,12 @@ public class SignOnServlet extends HttpServlet {
                     List<Product> myList = catalogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                     session.setAttribute("myList", myList);
                 }
+                JournalDao journalDao = new JournalDaoImpl();
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                String currentDate = formatter.format(date);
+                String loginInString = "User "+ username + " logged in.";
+                journalDao.updateJournal(username, loginInString, currentDate, "#4472C4");
                 req.getRequestDispatcher(MAIN_FORM).forward(req, resp);
             }
         }

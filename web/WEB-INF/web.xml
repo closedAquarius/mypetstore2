@@ -201,4 +201,13 @@
         <servlet-name>SearchFormServlet</servlet-name>
         <url-pattern>/searchForm</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JournalFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.JournalFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JournalFormServlet</servlet-name>
+        <url-pattern>/journalForm</url-pattern>
+    </servlet-mapping>
 </web-app>

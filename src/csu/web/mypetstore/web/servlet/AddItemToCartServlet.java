@@ -5,7 +5,9 @@ import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.CartItem;
 import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.JournalDao;
 import csu.web.mypetstore.persistence.impl.CartDaoImpl;
+import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
 import csu.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddItemToCartServlet extends HttpServlet {
 
@@ -49,6 +53,15 @@ public class AddItemToCartServlet extends HttpServlet {
                     newCartItem.setQuantity(1);
                     newCartItem.setInStock(isInStock);
                     cartDao.addItem(account.getUsername(),newCartItem);
+
+                    JournalDao journalDao = new JournalDaoImpl();
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                    String currentDate = formatter.format(date);
+                    String addItemString = "User "+ account.getUsername() + " added product "
+                            + "<a href=\"itemForm?itemId=" + workingItemId + "\">" + workingItemId + "</a>"
+                            + " to the <a href=\"cartForm\">cart</a>.";
+                    journalDao.updateJournal(account.getUsername(), addItemString, currentDate, "#FFC000");
                 }
                 //购物车中有该商品，updateItem
                 else

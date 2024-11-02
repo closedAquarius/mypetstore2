@@ -33,6 +33,8 @@
 
     </form>
     <a href="listOrderForm">My Orders</a>
+    &nbsp;&nbsp;
+    <a href="journalForm">My Journals</a>
 </div>
 
 
