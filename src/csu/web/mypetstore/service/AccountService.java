@@ -55,4 +55,8 @@ public class AccountService{
             accountDao.updateSignon(account);
         }
     }
+
+    public void updateProfileFavcategory(String favouriteCategoryId, Account account){
+        accountDao.updateProfileFavcategory(favouriteCategoryId,account.getUsername());
+    }
 }

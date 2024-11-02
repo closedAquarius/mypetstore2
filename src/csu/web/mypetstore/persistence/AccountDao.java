@@ -18,4 +18,6 @@ public interface AccountDao {
     void updateProfile(Account account);
 
     void updateSignon(Account account);
+
+    public void updateProfileFavcategory(String favouriteCategoryId, String username);
 }

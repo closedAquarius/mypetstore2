@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Random;
 
 public class GetCaptchaServlet extends HttpServlet {
@@ -56,7 +57,7 @@ public class GetCaptchaServlet extends HttpServlet {
         request.getSession().setAttribute("captcha", captchaCode.toString());
 
         // 输出图片
-        ServletOutputStream out = response.getOutputStream();
+        OutputStream out = response.getOutputStream();
         ImageIO.write(bufferedImage, "jpg", out);
         out.close();
     }

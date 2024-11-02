@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class EditServlet extends HttpServlet {
@@ -15,8 +16,7 @@ public class EditServlet extends HttpServlet {
     private static final String MAIN_FORM = "/WEB-INF/jsp/catalog/main.jsp";
 
     Account editAccount = new Account();
-    String registerMsg = null;
-    private String username;
+    String editMsg = null;
     private String password;
     private String repeatPassword;
     private String email;
@@ -37,7 +37,8 @@ public class EditServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        username = req.getParameter("username");
+        HttpSession session=req.getSession();
+        Account loginAccount = (Account) session.getAttribute("loginAccount");
         password = req.getParameter("password");
         repeatPassword = req.getParameter("repeatPassword");
         email = req.getParameter("email");
@@ -56,11 +57,11 @@ public class EditServlet extends HttpServlet {
         listOption = Boolean.parseBoolean(req.getParameter("listOption"));
         bannerOption = Boolean.parseBoolean(req.getParameter("bannerOption"));
         if(!validate()){
-            req.setAttribute("registerMsg", registerMsg);
+            req.setAttribute("editMsg", editMsg);
             req.getRequestDispatcher(EDIT_FORM).forward(req, resp);
         }
         else {
-            editAccount.setUsername(username);
+            editAccount.setUsername(loginAccount.getUsername());
             editAccount.setPassword(password);
             editAccount.setFirstName(firstName);
             editAccount.setLastName(lastName);
@@ -85,16 +86,12 @@ public class EditServlet extends HttpServlet {
     }
 
     private boolean validate(){
-        if (this.username == null || this.username.equals("")) {
-            this.registerMsg="用户名不能为空";
-            return false;
-        }
         if (this.password == null || this.password.equals("")) {
-            this.registerMsg="密码不能为空";
+            this.editMsg="密码不能为空";
             return false;
         }
         if(!this.password.equals(this.repeatPassword)){
-            this.registerMsg="两次密码不同";
+            this.editMsg="两次密码不同";
             return false;
         }
         //其他校验

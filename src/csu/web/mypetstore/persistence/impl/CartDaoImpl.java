@@ -125,7 +125,7 @@ public class CartDaoImpl implements CartDao
         return cart;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         CatalogService catalogService=new CatalogService();
         Item item=catalogService.getItem("EST-1");
         CartItem cartItem=new CartItem();
@@ -136,5 +136,5 @@ public class CartDaoImpl implements CartDao
         //cartDao.deleteCart("1");
         cartItem.setQuantity(2);
         cartDao.updateCart("1",cartItem);
-    }
+    }*/
 }

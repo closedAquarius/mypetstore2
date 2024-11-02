@@ -36,24 +36,25 @@ public class AccountDaoImpl implements AccountDao {
                     "      AND SIGNON.USERNAME = ACCOUNT.USERID\n" +
                     "      AND PROFILE.USERID = ACCOUNT.USERID\n" +
                     "      AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
-    private static final String GET_ACCOUNT_BY_USERNAME ="ELECT\n" +
-            "          SIGNON.USERNAME,\n" +
-            "          ACCOUNT.EMAIL,\n" +
-            "          ACCOUNT.FIRSTNAME,\n" +
-            "          ACCOUNT.LASTNAME,\n" +
-            "          ACCOUNT.STATUS,\n" +
-            "          ACCOUNT.ADDR1 AS address1,\n" +
-            "          ACCOUNT.ADDR2 AS address2,\n" +
-            "          ACCOUNT.CITY,\n" +
-            "          ACCOUNT.STATE,\n" +
-            "          ACCOUNT.ZIP,\n" +
-            "          ACCOUNT.COUNTRY,\n" +
-            "          ACCOUNT.PHONE,\n" +
-            "          PROFILE.LANGPREF AS languagePreference,\n" +
-            "          PROFILE.FAVCATEGORY AS favouriteCategoryId,\n" +
-            "          PROFILE.MYLISTOPT AS listOption,\n" +
-            "          PROFILE.BANNEROPT AS bannerOption,\n" +
-            "          BANNERDATA.BANNERNAME\n" +
+    private static final String GET_ACCOUNT_BY_USERNAME =
+            "SELECT\n" +
+            "      SIGNON.USERNAME,\n" +
+            "      ACCOUNT.EMAIL,\n" +
+            "      ACCOUNT.FIRSTNAME,\n" +
+            "      ACCOUNT.LASTNAME,\n" +
+            "      ACCOUNT.STATUS,\n" +
+            "      ACCOUNT.ADDR1 AS address1,\n" +
+            "      ACCOUNT.ADDR2 AS address2,\n" +
+            "      ACCOUNT.CITY,\n" +
+            "      ACCOUNT.STATE,\n" +
+            "      ACCOUNT.ZIP,\n" +
+            "      ACCOUNT.COUNTRY,\n" +
+            "      ACCOUNT.PHONE,\n" +
+            "      PROFILE.LANGPREF AS languagePreference,\n" +
+            "      PROFILE.FAVCATEGORY AS favouriteCategoryId,\n" +
+            "      PROFILE.MYLISTOPT AS listOption,\n" +
+            "      PROFILE.BANNEROPT AS bannerOption,\n" +
+            "      BANNERDATA.BANNERNAME\n" +
             "    FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA\n" +
             "    WHERE ACCOUNT.USERID = ?\n" +
             "      AND SIGNON.USERNAME = ACCOUNT.USERID\n" +
@@ -86,6 +87,11 @@ public class AccountDaoImpl implements AccountDao {
             "    WHERE USERID = ?";
     private final static String UPDATE_SIGNON = "UPDATE SIGNON SET PASSWORD = ?\n" +
             "    WHERE USERNAME = ?";
+    private final static String UPDATE_PROFILE_FAVCATEGORY = "UPDATE PROFILE SET\n" +
+            "      FAVCATEGORY = ?,\n" +
+            " MYLISTOPT = ?,\n" +
+            "BANNEROPT = ?\n" +
+            "    WHERE USERID = ?";
 
     @Override
     public Account getAccountByUsername(String username) {
@@ -231,7 +237,7 @@ public class AccountDaoImpl implements AccountDao {
         public void updateProfile(Account account) {
             try {
                 Connection connection= DBUtil.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PROFILE);
+                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROFILE);
                 preparedStatement.setString(1,account.getLanguagePreference());
                 preparedStatement.setString(2,account.getFavouriteCategoryId());
                 preparedStatement.setString(3,account.getUsername());
@@ -247,7 +253,7 @@ public class AccountDaoImpl implements AccountDao {
     public void updateSignon(Account account) {
         try {
             Connection connection= DBUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SIGNON);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SIGNON);
             preparedStatement.setString(1,account.getPassword());
             preparedStatement.setString(2,account.getUsername());
             preparedStatement.executeUpdate();
@@ -258,6 +264,23 @@ public class AccountDaoImpl implements AccountDao {
         }
     }
 
+    @Override
+    public void updateProfileFavcategory(String favouriteCategoryId, String username) {
+        try {
+            Connection connection= DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROFILE_FAVCATEGORY);
+            preparedStatement.setString(1,favouriteCategoryId);
+            preparedStatement.setInt(2,1);
+            preparedStatement.setInt(3,1);
+            preparedStatement.setString(4,username);
+            preparedStatement.executeUpdate();
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
    /* public static void main(String[] args) {
         AccountDao accountDao = new AccountDaoImpl();
@@ -267,4 +290,8 @@ public class AccountDaoImpl implements AccountDao {
         Account result = accountDao.getAccountByUsernameAndPassword(account);
         System.out.println("sucess");
     }*/
+   public static void main(String[] args) {
+       AccountDao accountDao = new AccountDaoImpl();
+       accountDao.updateProfileFavcategory("CATS","yyy");
+   }
 }
