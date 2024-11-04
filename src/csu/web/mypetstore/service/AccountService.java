@@ -1,13 +1,14 @@
 package csu.web.mypetstore.service;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.persistence.AccountDao;
+import csu.web.mypetstore.persistence.JournalDao;
 import csu.web.mypetstore.persistence.impl.AccountDaoImpl;
+import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class AccountService{
     private static final List<String> LANGUAGE_LIST;
@@ -84,5 +85,54 @@ public class AccountService{
             }
         }
         return categories[j];
+    }
+
+    public void updateItemJournal(Account account,String itemId){
+        if(account!=null){
+            JournalDao journalDao =new JournalDaoImpl();
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String currentDate = formatter.format(date);
+            String browseItemString = "User "+ account.getUsername() + " browsed the item: "
+                        + "<a href=\"itemForm?itemId=" + itemId + "\">" + itemId + "</a>.";
+            journalDao.updateJournal(account.getUsername(), browseItemString, currentDate, "#70AD47");
+        }
+    }
+
+    public void updateCategoryJournal(Account account,String categoryId){
+        if(account!=null){
+            JournalDao journalDao =new JournalDaoImpl();
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String currentDate = formatter.format(date);
+            String browseCategoryString = "User "+ account.getUsername() + " browsed the product category: "
+                    + "<a href=\"categoryForm?categoryId=" + categoryId + "\">" + categoryId + "</a>.";
+            journalDao.updateJournal(account.getUsername(), browseCategoryString, currentDate, "#70AD47");
+        }
+    }
+
+    public void updateProductJournal(Account account,String productId){
+        if (account != null)
+        {
+            JournalDao journalDao = new JournalDaoImpl();
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String currentDate = formatter.format(date);
+            String browseItemString = "User "+ account.getUsername() + " browsed the product: "
+                    + "<a href=\"productForm?productId=" + productId + "\">" + productId + "</a>.";
+            journalDao.updateJournal(account.getUsername(), browseItemString, currentDate, "#70AD47");
+        }
+    }
+
+    public void updateSignOff(Account account){
+        if (account != null)
+        {
+            JournalDao journalDao = new JournalDaoImpl();
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            String currentDate = formatter.format(date);
+            String loginOutString = "User "+ account.getUsername() + " logged out.";
+            journalDao.updateJournal(account.getUsername(), loginOutString, currentDate, "#4472C4");
+        }
     }
 }

@@ -37,7 +37,7 @@ public class ItemFormServlet extends HttpServlet {
         session.setAttribute("item", item);
         session.setAttribute("product", product);
 
-        Account account = (Account) session.getAttribute("loginAccount");
+       /* Account account = (Account) session.getAttribute("loginAccount");
         if (account != null)
         {
             JournalDao journalDao = new JournalDaoImpl();
@@ -47,7 +47,7 @@ public class ItemFormServlet extends HttpServlet {
             String browseItemString = "User "+ account.getUsername() + " browsed the item: "
                     + "<a href=\"itemForm?itemId=" + itemId + "\">" + itemId + "</a>.";
             journalDao.updateJournal(account.getUsername(), browseItemString, currentDate, "#70AD47");
-        }
+        }*/
 
         req.getRequestDispatcher(ITEM_FORM).forward(req, resp);
 

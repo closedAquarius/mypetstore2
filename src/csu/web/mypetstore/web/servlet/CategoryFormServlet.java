@@ -44,7 +44,7 @@ public class CategoryFormServlet extends HttpServlet {
         session.setAttribute("category", category);
         session.setAttribute("productList", productList);
 
-        Account account = (Account) session.getAttribute("loginAccount");
+        /*Account account = (Account) session.getAttribute("loginAccount");
         if (account != null)
         {
             JournalDao journalDao = new JournalDaoImpl();
@@ -54,7 +54,7 @@ public class CategoryFormServlet extends HttpServlet {
             String browseCategoryString = "User "+ account.getUsername() + " browsed the product category: "
                     + "<a href=\"categoryForm?categoryId=" + categoryId + "\">" + categoryId + "</a>.";
             journalDao.updateJournal(account.getUsername(), browseCategoryString, currentDate, "#70AD47");
-        }
+        }*/
 
         req.getRequestDispatcher(CATEGORY_FORM).forward(req, resp);
     }

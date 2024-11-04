@@ -33,7 +33,7 @@ public class ProductFormServlet extends HttpServlet {
         session.setAttribute("product", product);
         session.setAttribute("itemList", itemList);
 
-        Account account = (Account) session.getAttribute("loginAccount");
+      /*  Account account = (Account) session.getAttribute("loginAccount");
         if (account != null)
         {
             JournalDao journalDao = new JournalDaoImpl();
@@ -43,7 +43,7 @@ public class ProductFormServlet extends HttpServlet {
             String browseItemString = "User "+ account.getUsername() + " browsed the product: "
                     + "<a href=\"productForm?productId=" + productId + "\">" + productId + "</a>.";
             journalDao.updateJournal(account.getUsername(), browseItemString, currentDate, "#70AD47");
-        }
+        }*/
 
         req.getRequestDispatcher(PRODUCT_FORM).forward(req, resp);
     }

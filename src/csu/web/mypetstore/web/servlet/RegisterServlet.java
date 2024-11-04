@@ -74,6 +74,7 @@ public class RegisterServlet extends HttpServlet {
             String currentDate = formatter.format(date);
             String registerString = "User "+ username + " completed registration.";
             journalDao.updateJournal(username, registerString, currentDate, "#C00000");
+
             AccountService accountService = new AccountService();
             registerAccount.setUsername(username);
             registerAccount.setPassword(password);
