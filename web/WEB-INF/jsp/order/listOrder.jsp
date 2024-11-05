@@ -8,8 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../common/top.jsp"%>
 
+<div id="BackLink">
+    <a href="mainForm">Return to Main Menu</a>
+</div>
+
 <div id="Catalog">
-    <div id="ListOrder">
     <h2>My Orders</h2>
 
     <table>
@@ -31,6 +34,7 @@
             </tr>
         </c:forEach>
     </table>
-    </div>
+
+    <div id="Separator">&nbsp;</div>
 </div>
 <%@ include file="../common/bottom.jsp"%>

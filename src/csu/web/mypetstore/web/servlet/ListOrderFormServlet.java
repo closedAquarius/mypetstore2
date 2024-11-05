@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ListOrderFormServlet extends HttpServlet {
@@ -23,6 +24,7 @@ public class ListOrderFormServlet extends HttpServlet {
         OrderService orderService = new OrderService();
         List<Order> orderList=new ArrayList<Order>();
         orderList=orderService.getOrdersByUsername(account.getUsername());
+        Collections.reverse(orderList);
         req.setAttribute("orderList",orderList);
         req.getRequestDispatcher(LIST_ORDER_FORM).forward(req, resp);
     }
