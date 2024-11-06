@@ -21,12 +21,12 @@ public class SignOffServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("loginAccount");
-        /*JournalDao journalDao = new JournalDaoImpl();
+        JournalDao journalDao = new JournalDaoImpl();
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String currentDate = formatter.format(date);
         String loginOutString = "User "+ account.getUsername() + " logged out.";
-        journalDao.updateJournal(account.getUsername(), loginOutString, currentDate, "#4472C4");*/
+        journalDao.updateJournal(account.getUsername(), loginOutString, currentDate, "#4472C4");
 
         session.invalidate();
         req.getRequestDispatcher(MAIN_FORM).forward(req, resp);

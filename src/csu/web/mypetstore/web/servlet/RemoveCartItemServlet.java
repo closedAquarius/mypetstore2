@@ -52,7 +52,7 @@ public class RemoveCartItemServlet extends HttpServlet {
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String currentDate = formatter.format(date);
             String deleteItemString = "User "+ account.getUsername() + " deleted product "
-                    + "<a href=\"productForm?productId=" + workingItemId + "\">" + workingItemId + "<\\a>"
+                    + "<a href=\"itemForm?itemId=" + workingItemId + "\">" + workingItemId + "</a>"
                     + " from the <a href=\"cartForm\">cart</a>.";
             journalDao.updateJournal(account.getUsername(), deleteItemString, currentDate, "#BF9000");
 

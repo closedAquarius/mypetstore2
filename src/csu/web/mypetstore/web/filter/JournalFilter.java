@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "JournalFilter",urlPatterns = {"/itemForm","/categoryForm","/productForm","/signOff"})
+@WebFilter(filterName = "JournalFilter",urlPatterns = {"/itemForm","/categoryForm","/productForm"})
 public class JournalFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
