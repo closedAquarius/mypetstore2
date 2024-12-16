@@ -156,9 +156,6 @@ body>#Menu {
     height: 9ex;
 }
 
-{
-}
-
 #Search {
     width: 33%;
     height: 9ex;
@@ -180,6 +177,7 @@ body>#Menu {
 body>#Search {
     height: 9ex;
 }
+
 
 #Search input {
     border-width: .1ex .1ex .1ex .1ex;
@@ -320,4 +318,10 @@ body>#Banner {
     float: left;
     background-color:#ccc;
     text-align:left;
+}
+
+#ProductAutoComplete{
+    background-color: red;
+    color: red ;
+    position: relative;
 }

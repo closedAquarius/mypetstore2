@@ -30,6 +30,7 @@ public class SignOffServlet extends HttpServlet {
 
         session.invalidate();
         req.getRequestDispatcher(MAIN_FORM).forward(req, resp);
+        //resp.sendRedirect(MAIN_FORM);
     }
 
 }

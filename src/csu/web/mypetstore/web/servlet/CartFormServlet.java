@@ -22,8 +22,14 @@ public class CartFormServlet extends HttpServlet {
     {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("loginAccount");
-        Cart cart = cartDao.getCart(account.getUsername());
-        session.setAttribute("cart", cart);
-        req.getRequestDispatcher(CART_FORM).forward(req, resp);
+        if(account == null)
+        {
+            resp.sendRedirect("signOnForm");
+        }
+        else {
+            Cart cart = cartDao.getCart(account.getUsername());
+            session.setAttribute("cart", cart);
+            req.getRequestDispatcher(CART_FORM).forward(req, resp);
+        }
     }
 }

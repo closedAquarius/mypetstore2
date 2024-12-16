@@ -23,6 +23,7 @@ public class AddItemToCartServlet extends HttpServlet {
 
     CartDao cartDao = new CartDaoImpl();
     private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
+    private static final String SIGN_ON_FORM = "/WEB-INF/jsp/account/signon.jsp";
 
 
     @Override
