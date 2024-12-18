@@ -63,4 +63,10 @@ public class CategoryDaoImpl implements CategoryDao {
         }
         return category;
     }
+
+    /*public static void main(String[] args) {
+        CategoryDao categoryDao = new CategoryDaoImpl();
+        Category category = categoryDao.getCategory("BIRDS");
+        System.out.println(category.getCategoryId());
+    }*/
 }

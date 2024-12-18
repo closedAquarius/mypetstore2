@@ -18,7 +18,8 @@
   </tr>
   <tr>
     <td>Email:</td>
-    <td><input type="text" size="40" name="email" value="${sessionScope.loginAccount.email}"></td>
+    <td><input type="text" size="40" name="email" id="email" value="${sessionScope.loginAccount.email}" ></td>
+    <div id="emailFeedback" class="feedback"></div>
   </tr>
   <tr>
     <td>Phone:</td>
@@ -83,3 +84,4 @@
   </tr>
 
 </table>
+<script src="js/examination.js"></script>

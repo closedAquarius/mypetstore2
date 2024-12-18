@@ -3,8 +3,13 @@ package csu.web.mypetstore.web.servlet;
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.CartItem;
+import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.CategoryDao;
+import csu.web.mypetstore.persistence.ItemDao;
 import csu.web.mypetstore.persistence.impl.CartDaoImpl;
+import csu.web.mypetstore.persistence.impl.CategoryDaoImpl;
+import csu.web.mypetstore.persistence.impl.ItemDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.Iterator;
 
 public class UpdateCartServlet extends HttpServlet {

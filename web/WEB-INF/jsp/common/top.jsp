@@ -9,6 +9,7 @@
 <head>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css"
           media="screen" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>MyPetStore</title>
 </head>
 
@@ -42,12 +43,18 @@
     <div id="Search">
         <div id="SearchContent">
             <form action="searchForm" method="post">
-                <input type="text" name="keyword" size="14">
+                <input type="text" name="keyword" size="14" id="keyword" autocomplete="false">
                 <input type="submit" value="Search">
             </form>
-            <div id="ProductAutoComplete">
-                abc
-                wdwewq
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+                    <%--<li class="productAutoItem">19239912319031</li>
+                    <li class="productAutoItem">19239912319032</li>
+                    <li class="productAutoItem">19239912319033</li>
+                    <li class="productAutoItem">19239912319034</li>
+                    <li class="productAutoItem">19239912319035</li>--%>
+
+                </ul>
             </div>
         </div>
     </div>

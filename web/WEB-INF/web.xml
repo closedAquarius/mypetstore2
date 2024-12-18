@@ -210,4 +210,31 @@
         <servlet-name>JournalFormServlet</servlet-name>
         <url-pattern>/journalForm</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ExaminationServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ExaminationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExaminationServlet</servlet-name>
+        <url-pattern>/examination</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateCartItemServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCartItemServlet</servlet-name>
+        <url-pattern>/updateCartItem</url-pattern>
+    </servlet-mapping>
 </web-app>

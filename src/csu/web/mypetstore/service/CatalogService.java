@@ -56,4 +56,8 @@ public class CatalogService {
     public boolean isItemInStock(String itemId) {
         return itemDao.getInventoryQuantity(itemId) > 0;
     }
+
+    public String getCategoryByproductId(String productId) {
+        return productDao.getCategoryByProduct(productId);
+    }
 }

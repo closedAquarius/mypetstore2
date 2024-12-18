@@ -8,7 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class AccountDaoImpl implements AccountDao {
-
     private static final String GET_ACCOUNT_BY_USERNAME_AND_PASSWORD =
             "SELECT\n" +
                     "      SIGNON.USERNAME,\n" +
@@ -36,28 +35,28 @@ public class AccountDaoImpl implements AccountDao {
                     "      AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
     private static final String GET_ACCOUNT_BY_USERNAME =
             "SELECT\n" +
-            "      SIGNON.USERNAME,\n" +
-            "      ACCOUNT.EMAIL,\n" +
-            "      ACCOUNT.FIRSTNAME,\n" +
-            "      ACCOUNT.LASTNAME,\n" +
-            "      ACCOUNT.STATUS,\n" +
-            "      ACCOUNT.ADDR1 AS address1,\n" +
-            "      ACCOUNT.ADDR2 AS address2,\n" +
-            "      ACCOUNT.CITY,\n" +
-            "      ACCOUNT.STATE,\n" +
-            "      ACCOUNT.ZIP,\n" +
-            "      ACCOUNT.COUNTRY,\n" +
-            "      ACCOUNT.PHONE,\n" +
-            "      PROFILE.LANGPREF AS languagePreference,\n" +
-            "      PROFILE.FAVCATEGORY AS favouriteCategoryId,\n" +
-            "      PROFILE.MYLISTOPT AS listOption,\n" +
-            "      PROFILE.BANNEROPT AS bannerOption,\n" +
-            "      BANNERDATA.BANNERNAME\n" +
-            "    FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA\n" +
-            "    WHERE ACCOUNT.USERID = ?\n" +
-            "      AND SIGNON.USERNAME = ACCOUNT.USERID\n" +
-            "      AND PROFILE.USERID = ACCOUNT.USERID\n" +
-            "      AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
+                    "      SIGNON.USERNAME,\n" +
+                    "      ACCOUNT.EMAIL,\n" +
+                    "      ACCOUNT.FIRSTNAME,\n" +
+                    "      ACCOUNT.LASTNAME,\n" +
+                    "      ACCOUNT.STATUS,\n" +
+                    "      ACCOUNT.ADDR1 AS address1,\n" +
+                    "      ACCOUNT.ADDR2 AS address2,\n" +
+                    "      ACCOUNT.CITY,\n" +
+                    "      ACCOUNT.STATE,\n" +
+                    "      ACCOUNT.ZIP,\n" +
+                    "      ACCOUNT.COUNTRY,\n" +
+                    "      ACCOUNT.PHONE,\n" +
+                    "      PROFILE.LANGPREF AS languagePreference,\n" +
+                    "      PROFILE.FAVCATEGORY AS favouriteCategoryId,\n" +
+                    "      PROFILE.MYLISTOPT AS listOption,\n" +
+                    "      PROFILE.BANNEROPT AS bannerOption,\n" +
+                    "      BANNERDATA.BANNERNAME\n" +
+                    "    FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA\n" +
+                    "    WHERE ACCOUNT.USERID = ?\n" +
+                    "      AND SIGNON.USERNAME = ACCOUNT.USERID\n" +
+                    "      AND PROFILE.USERID = ACCOUNT.USERID\n" +
+                    "      AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
     private final static String INSERT_ACCOUNT = "INSERT INTO ACCOUNT\n" +
             "      (EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY, PHONE, USERID)\n" +
             "    VALUES\n" +
@@ -234,20 +233,20 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-        public void updateProfile(Account account) {
-            try {
-                Connection connection= DBUtil.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROFILE);
-                preparedStatement.setString(1,account.getLanguagePreference());
-                preparedStatement.setString(2,account.getFavouriteCategoryId());
-                preparedStatement.setString(3,account.getUsername());
-                preparedStatement.executeUpdate();
-                DBUtil.closePreparedStatement(preparedStatement);
-                DBUtil.closeConnection(connection);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+    public void updateProfile(Account account) {
+        try {
+            Connection connection= DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PROFILE);
+            preparedStatement.setString(1,account.getLanguagePreference());
+            preparedStatement.setString(2,account.getFavouriteCategoryId());
+            preparedStatement.setString(3,account.getUsername());
+            preparedStatement.executeUpdate();
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+    }
 
     @Override
     public void updateSignon(Account account) {
@@ -302,12 +301,13 @@ public class AccountDaoImpl implements AccountDao {
     }
 
 
-    /* public static void main(String[] args) {
+   /* public static void main(String[] args) {
         AccountDao accountDao = new AccountDaoImpl();
         Account account = new Account();
         account.setUsername("j2ee");
         account.setPassword("j2ee");
         Account result = accountDao.getAccountByUsernameAndPassword(account);
+        System.out.println(result.getFirstName());
         System.out.println("sucess");
     }*/
    /*public static void main(String[] args) {

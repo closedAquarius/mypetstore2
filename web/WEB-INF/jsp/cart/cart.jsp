@@ -11,7 +11,7 @@
         <h2>Shopping Cart</h2>
 
         <form action="updateCart" method="post">
-            <table>
+            <table id="table">
                 <tr>
                     <th><b>Item ID</b></th>
                     <th><b>Product ID</b></th>
@@ -30,7 +30,7 @@
                 </c:if>
 
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
-                    <tr>
+                    <tr id="cartItem">
                         <td>
                         <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
                         </td>
@@ -40,12 +40,12 @@
                                 ${cartItem.item.attribute5} ${cartItem.item.product.name}<</td>
                         <td>${cartItem.inStock}</td>
                         <td>
-                            <input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+                            <input type="text"  data-itemId="${cartItem.item.itemId}" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
                         </td>
                         <td><fmt:formatNumber value="${cartItem.item.listPrice}"
                                               pattern="$#,##0.00" /></td>
-                        <td><fmt:formatNumber value="${cartItem.total}"
-                                              pattern="$#,##0.00" /></td>
+                        <td><div class="total"><fmt:formatNumber value="${cartItem.total}"
+                                              pattern="$#,##0.00" /></div></td>
                         <td>
                             <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
@@ -53,7 +53,7 @@
                 </c:forEach>
                 <tr>
                     <td colspan="8">
-                        Sub Total: <fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
+                        <div id="subTotal">Sub Total:<fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" /></div>
                         <input type="submit" value="Update Cart">
                     </td>
                 </tr>
@@ -74,5 +74,5 @@
 
     <div id="Separator">&nbsp;</div>
 </div>
-
+<script src="js/updateCart.js"></script>
 <%@ include file="../common/bottom.jsp"%>

@@ -16,15 +16,18 @@
         <table>
             <tr>
                 <td>User ID:</td>
-                <td><input type="text" name="username"></td>
+                <td><input type="text" name="username" id="username"></td>
+                <div id="usernameFeedback" class="feedback"></div>
             </tr>
             <tr>
                 <td>New password:</td>
-                <td><input type="password" name="password"></td>
+                <td><input type="password" name="password" id="password"></td>
+                <div id="passwordFeedback" class="feedback"></div>
             </tr>
             <tr>
                 <td>Repeat password:</td>
-                <td><input type="password" name="repeatPassword"></td>
+                <td><input type="password" name="repeatPassword" id="repeatPassword"></td>
+                <div id="repeatPasswordFeedback" class="feedback"></div>
             </tr>
         </table>
 
@@ -33,7 +36,6 @@
         <img src="getCaptcha" alt="验证码"><br />
         <input type="submit" value="Save Account Information">
     </form>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

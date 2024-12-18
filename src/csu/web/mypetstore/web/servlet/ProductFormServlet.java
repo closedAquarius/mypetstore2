@@ -1,6 +1,7 @@
 package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.Category;
 import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.persistence.JournalDao;
@@ -28,8 +29,11 @@ public class ProductFormServlet extends HttpServlet {
         catalogService = new CatalogService();
         Product product = catalogService.getProduct(productId);
         List<Item> itemList = catalogService.getItemListByProduct(productId);
+        String categoryId=catalogService.getCategoryByproductId(productId);
+        Category category = catalogService.getCategory(categoryId);
         HttpSession session = req.getSession();
         session.setAttribute("isAdd","true");
+        session.setAttribute("category",category);
         session.setAttribute("product", product);
         session.setAttribute("itemList", itemList);
 

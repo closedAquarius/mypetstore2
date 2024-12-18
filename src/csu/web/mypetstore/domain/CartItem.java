@@ -20,6 +20,7 @@ public class CartItem implements Serializable {
     }
 
     public BigDecimal getTotal() {
+        calculateTotal();
         return total;
     }
 
