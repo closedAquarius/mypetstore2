@@ -26,7 +26,8 @@
             Password:<input type="password" name="password"></p>
 
         <input type="text" name="captchaInput">
-        <img id="captchaImage" src="getCaptcha" alt="验证码" style="cursor: pointer;" onclick="reloadCaptcha()"><br />
+        <img id="captchaImage" src="getCaptcha" alt="验证码"
+             style="cursor: pointer;" onclick="reloadCaptcha()"><br />
         <input type="submit" value="Login">
     </form>
 
