@@ -1,10 +1,11 @@
 $(function (){
     $('#keyword').on('keyup',function (){
         let keyword = $(this).val();
+        console.log(keyword);
         if(keyword !== ''&&keyword !== null && keyword.length !== 0){
             $.ajax({
                 type    :'GET',
-                url     :'http://localhost:8080/mypetstore/productAuto?keyword='+keyword,
+                url     :'http://localhost:8080/MyPetStore/productAuto?keyword='+keyword,
                 success :function (data){
                     console.log(data);
                     let productListHTML = '';

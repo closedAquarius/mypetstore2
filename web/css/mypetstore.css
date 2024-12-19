@@ -1,14 +1,18 @@
-body {
-    margin: 0ex 10ex 0ex 10ex;
+body
+{
+    margin: 0ex 0ex 0ex 0ex;
     padding: 0ex;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
     font-size: 2ex;
     color: #333;
     background-color: #444;
-    width: 1080px;
+    /*width: 1080px;*/
+    width: 100%;
+    height: 100%;
 }
 
-pre {
+pre
+{
     font-family: "Courier New", Courier, mono;
 
     font-style: normal;
@@ -16,7 +20,8 @@ pre {
     white-space: pre
 }
 
-h1 {
+h1
+{
     margin: 1ex 0ex 1ex 0ex;
     padding: 0ex;
 
@@ -25,7 +30,8 @@ h1 {
     color: #666;
 }
 
-h2 {
+h2
+{
     margin: 2ex 0ex 1ex 0ex;
     padding: 0ex;
 
@@ -34,7 +40,8 @@ h2 {
     color: #444;
 }
 
-h3 {
+h3
+{
     margin: 1ex 0ex 1ex 0ex;
     padding: 0ex;
 
@@ -43,7 +50,8 @@ h3 {
     color: #222;
 }
 
-p {
+p
+{
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
 
     margin: 0ex 0ex 0ex 0ex;
