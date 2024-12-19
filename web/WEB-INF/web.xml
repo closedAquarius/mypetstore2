@@ -237,4 +237,13 @@
         <servlet-name>UpdateCartItemServlet</servlet-name>
         <url-pattern>/updateCartItem</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetDetailsServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.GetDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetDetailsServlet</servlet-name>
+        <url-pattern>/getDetails</url-pattern>
+    </servlet-mapping>
 </web-app>

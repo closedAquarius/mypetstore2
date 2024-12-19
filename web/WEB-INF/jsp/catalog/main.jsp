@@ -35,17 +35,18 @@
     <div id="MainImage">
         <div id="MainImageContent">
             <map name="estoremap">
-                <area alt="Birds" coords="72,2,280,250"
+                <div class="info" id="info" style="display: none;"></div>
+                <area id="BirdsBig" alt="Birds" coords="72,2,280,250"
                       href="categoryForm?categoryId=BIRDS" shape="RECT" />
-                <area alt="Fish" coords="2,180,72,250"
+                <area id="Fish" alt="Fish" coords="2,180,72,250"
                       href="categoryForm?categoryId=FISH" shape="RECT" />
-                <area alt="Dogs" coords="60,250,130,320"
+                <area id="Dogs" alt="Dogs" coords="60,250,130,320"
                       href="categoryForm?categoryId=DOGS" shape="RECT" />
-                <area alt="Reptiles" coords="140,270,210,340"
+                <area id="Reptiles" alt="Reptiles" coords="140,270,210,340"
                       href="categoryForm?categoryId=REPTILES" shape="RECT" />
-                <area alt="Cats" coords="225,240,295,310"
+                <area id="Cats" alt="Cats" coords="225,240,295,310"
                       href="categoryForm?categoryId=CATS" shape="RECT" />
-                <area alt="Birds" coords="280,180,350,250"
+                <area id="BirdsSmall" alt="Birds" coords="280,180,350,250"
                       href="categoryForm?categoryId=BIRDS" shape="RECT" />
             </map>
             <img height="355" src="images/splash.gif" align="middle"
@@ -54,5 +55,5 @@
 
     <div id="Separator">&nbsp;</div>
 </div>
-
+<script src="js/getDetails.js"></script>
 <%@ include file="../common/bottom.jsp"%>
