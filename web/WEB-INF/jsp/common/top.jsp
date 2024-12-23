@@ -72,7 +72,6 @@
             <a href="categoryForm?categoryId=BIRDS">Birds</a>
         </p>
     </div>
-
 </div>
 
 <div id="Content">

@@ -13,7 +13,6 @@
 
 <div id="Catalog">
     Please confirm the information below and then press continue...
-
     <form action="newOrder?confirmed=true" method="post">
         <table>
             <tr>

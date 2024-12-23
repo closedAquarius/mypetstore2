@@ -75,5 +75,6 @@
 
     <div id="Separator">&nbsp;</div>
 </div>
+
 <script src="js/updateCart.js"></script>
 <%@ include file="../common/bottom.jsp"%>

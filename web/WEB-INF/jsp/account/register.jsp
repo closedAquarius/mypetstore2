@@ -37,7 +37,8 @@
         <div id="save">
             <p>
                 <input type="text" name="captchaInput">
-                <img src="getCaptcha" alt="验证码">&nbsp;&nbsp;&nbsp;
+                <img src="getCaptcha" alt="验证码">
+                &nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Save Account Information" id="saveButton">
             </p>
         </div>

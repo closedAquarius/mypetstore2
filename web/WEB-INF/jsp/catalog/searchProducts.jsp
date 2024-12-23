@@ -30,7 +30,6 @@
         <td>${product.name}</td>
       </tr>
     </c:forEach>
-
   </table>
 
 </div>

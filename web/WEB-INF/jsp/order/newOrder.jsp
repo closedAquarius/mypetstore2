@@ -85,7 +85,6 @@
                     <input type="text" size="40" name="order.billCountry" value="${sessionScope.loginAccount.country}"/>
                 </td>
             </tr>
-
             <tr>&nbsp;</tr>
             <tr>
                 <td colspan=2>

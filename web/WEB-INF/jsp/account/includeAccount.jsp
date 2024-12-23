@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <h3>Account Information</h3>
-
 <table id="table2">
   <tr>
     <th>First name:</th>
@@ -42,7 +41,6 @@
 </table>
 
 <h3>Profile Information</h3>
-
 <table id="table3">
   <tr>
     <th>Language Preference:</th>

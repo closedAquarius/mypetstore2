@@ -40,7 +40,6 @@
             <td><fmt:formatNumber value="${sessionScope.item.listPrice}"
                                   pattern="$#,##0.00" /></td>
         </tr>
-
         <tr id="lastTr">
             <td>
                 <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button"><p>Add to Cart</p></a>

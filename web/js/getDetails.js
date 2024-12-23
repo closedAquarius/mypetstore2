@@ -13,11 +13,13 @@ $(function (){
     });*/
     let isOverInfo = false;
     //添加 mouseenter 和 mouseleave 事件处理程序到 info 元素
-    $('#info').on('mouseenter', function() {
+    $('#info').on('mouseenter', function()
+    {
         $(this).css('display', 'block'); // 确保 info 显示
         isOverInfo = true;
     });
-    $('#info').on('mouseleave', function() {
+    $('#info').on('mouseleave', function()
+    {
         let info=$('#info')
 
         let parentContainer = $('#Content');  //父容器的选择器

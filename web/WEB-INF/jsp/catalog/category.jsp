@@ -14,7 +14,6 @@
 <div id="Catalog">
 
     <h2>${sessionScope.category.name}</h2>
-
     <table class="show">
         <thead>
             <tr>
@@ -33,7 +32,6 @@
             </c:forEach>
         </tbody>
     </table>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

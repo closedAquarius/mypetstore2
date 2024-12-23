@@ -58,7 +58,8 @@ $(function (){
         }
     });
 
-    $('#repeatPassword').on('blur',function (){
+    $('#repeatPassword').on('blur',function ()
+    {
         let repeatPasswordFeedback=$('#repeatPasswordFeedback');
         repeatPasswordFeedback.text('');
         const repeatPassword = $(this).val();
@@ -68,7 +69,8 @@ $(function (){
         }
     });
 
-    $('#email').on('blur',function (){
+    $('#email').on('blur',function ()
+    {
         const email=$(this).val();
         console.log(email);
         //正则表达式来验证电子邮件格式

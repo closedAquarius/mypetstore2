@@ -35,14 +35,16 @@ $(function (){
 
     })*/
     //动态绑定,因为li是动态生成的
-    $(document).on('click','.productAutoItem',function(){
+    $(document).on('click','.productAutoItem',function()
+    {
         const productId = $(this).data('productid');
         $('#productAutoComplete').hide();
         $('#keyword').val('');
         window.location.href="http://localhost:8080/mypetstore/productForm?productId="+productId;
     });
 
-    $('#productAutoComplete').on('mouseleave',function (){
+    $('#productAutoComplete').on('mouseleave',function ()
+    {
         $(this).hide();
         $('#keyword').val('');
     })
