@@ -34,7 +34,6 @@ public class GetDetailsServlet extends HttpServlet {
             }
         }
         String result = JSON.toJSONString(itemList);
-        System.out.println(result);
         resp.setContentType("text/json");
         PrintWriter out = resp.getWriter();
         out.println(result);

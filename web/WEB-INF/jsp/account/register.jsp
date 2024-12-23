@@ -8,39 +8,33 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="Catalog">
-    <form action="register" method="post" id="registerForm">
+    <form action="register" method="post">
         <h3>User Information</h3>
         <c:if test="${requestScope.registerMsg != null}">
             <p><font color="red">${requestScope.registerMsg}</font></p>
         </c:if>
-        <table id="table1">
+        <table>
             <tr>
-                <th>User ID:</th>
+                <td>User ID:</td>
                 <td><input type="text" name="username" id="username"></td>
                 <div id="usernameFeedback" class="feedback"></div>
             </tr>
             <tr>
-                <th>New password:</th>
+                <td>New password:</td>
                 <td><input type="password" name="password" id="password"></td>
                 <div id="passwordFeedback" class="feedback"></div>
             </tr>
             <tr>
-                <th>Repeat password:</th>
+                <td>Repeat password:</td>
                 <td><input type="password" name="repeatPassword" id="repeatPassword"></td>
                 <div id="repeatPasswordFeedback" class="feedback"></div>
             </tr>
         </table>
 
-            <%@ include file="includeAccount.jsp"%>
-
-        <br>
-        <div id="save">
-            <p>
-                <input type="text" name="captchaInput">
-                <img src="getCaptcha" alt="验证码">&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Save Account Information" id="saveButton">
-            </p>
-        </div>
+        <%@ include file="includeAccount.jsp"%>
+        <input type="text" name="captchaInput">
+        <img src="getCaptcha" alt="验证码"><br />
+        <input type="submit" value="Save Account Information">
     </form>
 </div>
 

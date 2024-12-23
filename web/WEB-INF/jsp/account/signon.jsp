@@ -17,32 +17,22 @@
 </script>
 <div id="Catalog">
 
-    <form action="signOn" method="post" id="signOnForm">
-        <p id="signOnTitle">Please Enter Your Username And Password</p>
-        <div id="formContent">
-            <p>
-                <span>Username:</span><br>
-                <input type="text" name="username" placeholder="Enter Your Username"> <br><br>
-                <span>Password:</span><br>
-                <input type="password" name="password" placeholder="Enter Your Password"><br><br>
-                <span>Captcha:</span><br>
-                <input type="text" name="captchaInput" placeholder="Enter The Captcha" id="captchaInput">&nbsp;
-                <img id="captchaImage" src="getCaptcha" alt="验证码"
-                 style="cursor: pointer;" onclick="reloadCaptcha()">
-            </p><br><br><br>
+    <form action="signOn" method="post">
+        <p>Please enter your username and password.</p>
+        <c:if test="${requestScope.signOnMsg != null}">
+            <p><font color="red">${requestScope.signOnMsg}</font></p>
+        </c:if>
+        <p>Username:<input type="text" name="username"> <br />
+            Password:<input type="password" name="password"></p>
 
-            <span id="needAnAccount">
-                    Need an account?
-                    <a href="registerForm">Register Now!</a>
-            </span>
-            <input type="submit" value="Login" id="submit">
-            <c:if test="${requestScope.signOnMsg != null}">
-                <p id="requestMessage"><font color="red">${requestScope.signOnMsg}</font></p>
-            </c:if>
-        </div>
+        <input type="text" name="captchaInput">
+        <img id="captchaImage" src="getCaptcha" alt="验证码"
+             style="cursor: pointer;" onclick="reloadCaptcha()"><br />
+        <input type="submit" value="Login">
     </form>
 
-
+    Need a username and password?
+    <a href="registerForm">Register Now!</a>
 
 </div>
 

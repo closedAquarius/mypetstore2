@@ -7,45 +7,55 @@
 --%>
 <h3>Account Information</h3>
 
-<table id="table2">
+<table>
   <tr>
-    <th>First name:</th>
+    <td>First name:</td>
     <td><input type="text" name="firstName" value="${sessionScope.loginAccount.firstName}"></td>
-    <th>Last name:</th>
+  </tr>
+  <tr>
+    <td>Last name:</td>
     <td><input type="text" name="lastName" value="${sessionScope.loginAccount.lastName}"></td>
   </tr>
   <tr>
-    <th>Email:</th>
+    <td>Email:</td>
     <td><input type="text" size="40" name="email" id="email" value="${sessionScope.loginAccount.email}" ></td>
     <div id="emailFeedback" class="feedback"></div>
-    <th>Phone:</th>
+  </tr>
+  <tr>
+    <td>Phone:</td>
     <td><input type="text" name="phone" value="${sessionScope.loginAccount.phone}"></td>
   </tr>
   <tr>
-    <th>Address 1:</th>
+    <td>Address 1:</td>
     <td><input type="text" size="40" name="address1" value="${sessionScope.loginAccount.address1}"></td>
-    <th>Address 2:</th>
+  </tr>
+  <tr>
+    <td>Address 2:</td>
     <td><input type="text" size="40" name="address2" value="${sessionScope.loginAccount.address2}"></td>
   </tr>
   <tr>
-    <th>City:</th>
+    <td>City:</td>
     <td><input type="text" name="city" value="${sessionScope.loginAccount.city}"></td>
-    <th>State:</th>
+  </tr>
+  <tr>
+    <td>State:</td>
     <td><input type="text" size="4" name="state" value="${sessionScope.loginAccount.state}"></td>
   </tr>
   <tr>
-    <th>Zip:</th>
+    <td>Zip:</td>
     <td><input type="text" size="10" name="zip" value="${sessionScope.loginAccount.zip}"></td>
-    <th>Country:</th>
+  </tr>
+  <tr>
+    <td>Country:</td>
     <td><input type="text" size="15" name="country" value="${sessionScope.loginAccount.country}"></td>
   </tr>
 </table>
 
 <h3>Profile Information</h3>
 
-<table id="table3">
+<table>
   <tr>
-    <th>Language Preference:</th>
+    <td>Language Preference:</td>
     <td>
         <select name="languagePreference">
           <c:forEach var="lang" items="${sessionScope.languages}">
@@ -53,19 +63,23 @@
           </c:forEach>
         </select>
     </td>
-    <th>Enable MyList</th>
-    <td><input type="checkbox" name="listOption" value="1" checked></td>
-    </td>
   </tr>
   <tr>
-    <th>Favourite Category:</th>
+    <td>Favourite Category:</td>
     <td>
       <select name="favouriteCategoryId">
         <c:forEach var="cate" items="${sessionScope.categories}">
           <option value="${cate}">${cate}</option>
         </c:forEach>
       </select>
-    <th>Enable MyBanner</th>
+    </td>
+  </tr>
+  <tr>
+    <td>Enable MyList</td>
+    <td><input type="checkbox" name="listOption" value="1" checked></td>
+  </tr>
+  <tr>
+    <td>Enable MyBanner</td>
     <td><input type="checkbox" name="bannerOption" value="1" checked></td>
   </tr>
 

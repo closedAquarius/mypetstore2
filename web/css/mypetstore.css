@@ -352,6 +352,18 @@ body>#Banner {
     text-align: left;
     padding-left: 8px;
     margin-top: 3px;
+    color: #005e21;
+    cursor: pointer;
+}
+
+.Auto{
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    text-align: left;
+    padding-left: 8px;
+    margin-top: 3px;
     border-bottom: 1px solid #666;
     color: #005e21;
     cursor: pointer;
@@ -379,6 +391,7 @@ body>#Banner {
     border: 1px solid #ddd;
     padding: 5px;
     display: none; /* 默认不显示 */
-    pointer-events: none; /* 防止信息框阻挡鼠标事件 */
-    width: 180px;
+    width: 200px;
 }
+
+

@@ -3,10 +3,12 @@ package csu.web.mypetstore.web.servlet;
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Order;
+import csu.web.mypetstore.domain.UserAddress;
 import csu.web.mypetstore.persistence.CartDao;
 import csu.web.mypetstore.persistence.JournalDao;
 import csu.web.mypetstore.persistence.impl.CartDaoImpl;
 import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
+import csu.web.mypetstore.service.AccountService;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -25,6 +27,7 @@ public class NewOrderServlet extends HttpServlet {
 
     OrderService orderService = new OrderService();
     CartDao cartDao = new CartDaoImpl();
+    AccountService accountService = new AccountService();
     private Account account;
     private Cart cart;
     private Order order;
@@ -42,8 +45,11 @@ public class NewOrderServlet extends HttpServlet {
 
 
         shippingAddressRequired = request.getParameter("shippingAddressRequired") != null;
+        System.out.println("shippingAddressRequired: " + shippingAddressRequired);
         shipAddressSubmitted = "true".equals(request.getParameter("shipAddressSubmitted"));
+        System.out.println("shipAddressSubmitted: " + shipAddressSubmitted);
         confirmed = "true".equals(request.getParameter("confirmed"));
+        System.out.println("confirmed: " + confirmed);
 
         confirmed = request.getParameter("confirmed") != null;
 
@@ -56,14 +62,26 @@ public class NewOrderServlet extends HttpServlet {
         else if(shipAddressSubmitted)
         {
             shipAddressSubmitted = false;
-            order.setShipAddress1(request.getParameter("order.shipToFirstName"));
-            order.setShipAddress2(request.getParameter("order.shipToFirstName"));
+            UserAddress userAddress = new UserAddress();
+            order.setShipAddress1(request.getParameter("order.shipAddress1"));
+            order.setShipAddress2(request.getParameter("order.shipAddress2"));
             order.setShipCity(request.getParameter("order.shipCity"));
             order.setShipCountry(request.getParameter("order.shipCountry"));
             order.setShipState(request.getParameter("order.shipState"));
-            order.setShipToFirstName(request.getParameter("order.shipAddress1"));
-            order.setShipToLastName(request.getParameter("order.shipAddress2"));
+            order.setShipToFirstName(request.getParameter("order.shipToFirstName"));
+            order.setShipToLastName(request.getParameter("order.shipToLastName"));
             order.setShipZip(request.getParameter("order.shipZip"));
+            userAddress.setUsername(account.getUsername());
+            userAddress.setFirstName(request.getParameter("order.shipToFirstName"));
+            userAddress.setLastName(request.getParameter("order.shipToLastName"));
+            userAddress.setZip(request.getParameter("order.shipZip"));
+            userAddress.setAddress1(request.getParameter("order.shipAddress1"));
+            userAddress.setAddress2(request.getParameter("order.shipAddress2"));
+            userAddress.setCity(request.getParameter("order.shipCity"));
+            userAddress.setCountry(request.getParameter("order.shipCountry"));
+            userAddress.setState(request.getParameter("order.shipState"));
+            userAddress.setStatus("OK");
+            accountService.insertUserAddress(userAddress);
             session.setAttribute("order",order);
 
             request.getRequestDispatcher(CONFIRM_ORDER).forward(request,response);

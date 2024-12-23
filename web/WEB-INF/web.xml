@@ -246,4 +246,13 @@
         <servlet-name>GetDetailsServlet</servlet-name>
         <url-pattern>/getDetails</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeAddressServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ChangeAddressServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeAddressServlet</servlet-name>
+        <url-pattern>/changeAddress</url-pattern>
+    </servlet-mapping>
 </web-app>
