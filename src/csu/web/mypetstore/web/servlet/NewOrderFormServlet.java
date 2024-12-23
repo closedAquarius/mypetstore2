@@ -28,6 +28,7 @@ public class NewOrderFormServlet extends HttpServlet {
         Account loginAccount = (Account)session.getAttribute("loginAccount");
         Cart cart = (Cart)session.getAttribute("cart");
         System.out.println(cart);
+
         if(loginAccount == null)
         {
             resp.sendRedirect("signOnForm");

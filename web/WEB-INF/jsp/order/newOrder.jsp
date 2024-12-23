@@ -21,6 +21,7 @@
     </c:forEach>
 </div>
 
+
 <div id="Catalog">
     <form action="newOrder?newOrderFormSubmitted=true" method="post" id="orderForm"><table>
             <tr>

@@ -33,7 +33,7 @@
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
                     <tr id="cartItem">
                         <td>
-                        <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+                            <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
                         </td>
                         <td>${cartItem.item.product.productId}</td>
                         <td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
@@ -46,7 +46,7 @@
                         <td><fmt:formatNumber value="${cartItem.item.listPrice}"
                                               pattern="$#,##0.00" /></td>
                         <td><div class="total"><fmt:formatNumber value="${cartItem.total}"
-                                              pattern="$#,##0.00" /></div></td>
+                                                                 pattern="$#,##0.00" /></div></td>
                         <td>
                             <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
@@ -62,7 +62,7 @@
         </form>
         <c:if test="${sessionScope.cart.numberOfItems > 0}">
             <a href="newOrderForm" class="Button">Proceed to Checkout</a>
-    </c:if>
+        </c:if>
     </div>
 
     <div id="MyList">

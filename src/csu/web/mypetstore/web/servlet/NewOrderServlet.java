@@ -45,11 +45,8 @@ public class NewOrderServlet extends HttpServlet {
 
 
         shippingAddressRequired = request.getParameter("shippingAddressRequired") != null;
-        System.out.println("shippingAddressRequired: " + shippingAddressRequired);
         shipAddressSubmitted = "true".equals(request.getParameter("shipAddressSubmitted"));
-        System.out.println("shipAddressSubmitted: " + shipAddressSubmitted);
         confirmed = "true".equals(request.getParameter("confirmed"));
-        System.out.println("confirmed: " + confirmed);
 
         confirmed = request.getParameter("confirmed") != null;
 
@@ -80,10 +77,10 @@ public class NewOrderServlet extends HttpServlet {
             userAddress.setCity(request.getParameter("order.shipCity"));
             userAddress.setCountry(request.getParameter("order.shipCountry"));
             userAddress.setState(request.getParameter("order.shipState"));
-            userAddress.setStatus("OK");
+            String status="OK";
+            userAddress.setStatus(status);
             accountService.insertUserAddress(userAddress);
             session.setAttribute("order",order);
-
             request.getRequestDispatcher(CONFIRM_ORDER).forward(request,response);
         }
         else if(confirmed)

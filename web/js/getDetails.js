@@ -11,6 +11,20 @@ $(function (){
         }
 
     });*/
+
+    $('#info').on('click','.productAutoItem',function(){
+        const productId = $(this).data('productid');
+        console.log(productId);
+        window.location.href="http://localhost:8080/mypetstore/productForm?productId="+productId;
+        $('#productAutoComplete').hide();
+    });
+    $('#info').on('click','.itemAutoItem',function(){
+        const itemId = $(this).data('itemid');
+        console.log(itemId);
+        window.location.href="http://localhost:8080/mypetstore/itemForm?itemId="+itemId;
+        $('#productAutoComplete').hide();
+    });
+
     let isOverInfo = false;
     //添加 mouseenter 和 mouseleave 事件处理程序到 info 元素
     $('#info').on('mouseenter', function()

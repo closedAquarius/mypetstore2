@@ -12,4 +12,5 @@ public interface UserAddressDao {
     public void deleteUserAddress(String username, String addressId);
 
     public void updateMainAddress(String username, String addressId);
+
 }

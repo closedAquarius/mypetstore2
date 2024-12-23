@@ -156,7 +156,7 @@ public class AccountService{
         return null;
     }
     public List<UserAddress> getUserOKAddressByUsername(String username){
-        List<UserAddress> userAddress = userAddressDao.getUserAddress(username);
+        List<UserAddress> userAddress = getAllAddressByUsername(username);
         List<UserAddress> userAddressOK = new ArrayList<>();
         for (UserAddress userAddress1 : userAddress) {
             if (userAddress1.getStatus()!=null&&userAddress1.getStatus().equals("OK")) {
@@ -165,6 +165,7 @@ public class AccountService{
         }
         return userAddressOK;
     }
+
 
     public void deleteUserAddress(String username, String addressId){
         userAddressDao.deleteUserAddress(username, addressId);

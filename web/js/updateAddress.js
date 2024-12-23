@@ -10,6 +10,7 @@ $(function (){
                 type: 'GET',
                 url: 'http://localhost:8080/mypetstore/changeAddress?addressId='+addressId+'&isDelete='+id,
                 success: function(data){
+
                         $('#firstname').val(data.firstName);
                         $('#lastname').val(data.lastName);
                         $('#address1').val(data.address1);

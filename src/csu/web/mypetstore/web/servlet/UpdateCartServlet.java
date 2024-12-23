@@ -42,6 +42,7 @@ public class UpdateCartServlet extends HttpServlet {
             {
                 String quantityString = req.getParameter(itemId);
                 int quantity = Integer.parseInt(quantityString);
+
                 cartItem.setQuantity(quantity);
                 if (quantity < 1)
                 {

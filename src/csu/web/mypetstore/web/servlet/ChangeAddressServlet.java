@@ -38,6 +38,7 @@ public class ChangeAddressServlet extends HttpServlet {
             resp.setContentType("text/json");
             session.setAttribute("order", order);
             String result = JSON.toJSONString(address);
+            System.out.println(result);
             PrintWriter out = resp.getWriter();
             out.print(result);
         }else if (isDelete.equals("delete")) {

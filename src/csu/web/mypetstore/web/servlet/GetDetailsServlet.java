@@ -37,5 +37,6 @@ public class GetDetailsServlet extends HttpServlet {
         resp.setContentType("text/json");
         PrintWriter out = resp.getWriter();
         out.println(result);
+
     }
 }
