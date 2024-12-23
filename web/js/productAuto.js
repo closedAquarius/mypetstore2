@@ -20,7 +20,8 @@ $(function (){
                     $('#productAutoList').html(productListHTML);
                     $('#productAutoComplete').show();
                 },
-                error   : function (errorMsg) {
+                error   : function (errorMsg)
+                {
                     console.log(errorMsg);
                 }
             })

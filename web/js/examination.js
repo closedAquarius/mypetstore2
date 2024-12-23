@@ -71,7 +71,7 @@ $(function (){
     $('#email').on('blur',function (){
         const email=$(this).val();
         console.log(email);
-        // 正则表达式来验证电子邮件格式
+        //正则表达式来验证电子邮件格式
         const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if(regex.test(email)){
             $('#emailFeedback').text('');

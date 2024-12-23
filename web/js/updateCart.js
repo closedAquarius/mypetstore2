@@ -14,7 +14,8 @@ $(function (){
             success:function (data){
                 if(quantity == 0){
                     $row.remove();
-                }else{
+                }
+                else{
                     $totalDiv.text(data['cartItemTotal']);
                 }
                 $('#subTotal').text('Sub Total:'+data['subTotal']);

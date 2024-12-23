@@ -8,7 +8,7 @@
 
 <head>
     <!--<link rel="StyleSheet" href="css/mypetstore.css" type="text/css"
-          media="screen" />-->
+          media="screen">-->
     <link rel="StyleSheet" href="css/header.css" type="text/css" media="screen" />
     <link rel="StyleSheet" href="css/common.css" type="text/css" media="screen" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

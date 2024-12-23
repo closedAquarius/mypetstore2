@@ -12,7 +12,7 @@ $(function (){
 
     });*/
     let isOverInfo = false;
-    // 添加 mouseenter 和 mouseleave 事件处理程序到 info 元素
+    //添加 mouseenter 和 mouseleave 事件处理程序到 info 元素
     $('#info').on('mouseenter', function() {
         $(this).css('display', 'block'); // 确保 info 显示
         isOverInfo = true;
