@@ -8,14 +8,12 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="Catalog">
-    <form action="newOrder?newOrderFormSubmitted=true" method="post">
-
-        <table>
+    <form action="newOrder?newOrderFormSubmitted=true" method="post" id="orderForm"><table>
             <tr>
                 <th colspan=2>Payment Details</th>
             </tr>
             <tr>
-                <td>Card Type:</td>
+                <th>Card Type:</th>
                 <td>
                     <select name="order.cardType">
                         <option value="Visa">Visa</option>
@@ -26,13 +24,13 @@
                 </td>
             </tr>
             <tr>
-                <td>Card Number:</td>
+                <th>Card Number:</th>
                 <td>
                     <input type="text" name="order.creditCard" value="${sessionScope.order.creditCard}"/>
                 </td>
             </tr>
             <tr>
-                <td>Expiry Date (MM/YYYY):</td>
+                <th>Expiry Date (MM/YYYY):</th>
                 <td>
                     <input type="text" name="order.expiryDate" value="${sessionScope.order.expiryDate}"/>
                 </td>
@@ -42,62 +40,62 @@
             </tr>
 
             <tr>
-                <td>First name:</td>
+                <th>First name:</th>
                 <td>
                     <input type="text" name="order.billToFirstName" value="${sessionScope.loginAccount.firstName}"/>
                 </td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <th>Last name:</th>
                 <td>
                     <input type="text" name="order.billToLastName" value="${sessionScope.loginAccount.lastName}"/>
                 </td>
             </tr>
             <tr>
-                <td>Address 1:</td>
+                <th>Address 1:</th>
                 <td>
                     <input type="text" size="40" name="order.billAddress1" value="${sessionScope.loginAccount.address1}"/>
                 </td>
             </tr>
             <tr>
-                <td>Address 2:</td>
+                <th>Address 2:</th>
                 <td>
                     <input type="text" size="40" name="order.billAddress2" value="${sessionScope.loginAccount.address2}"/>
                 </td>
             </tr>
             <tr>
-                <td>City:</td>
+                <th>City:</th>
                 <td><input type="text" name="order.billCity" value="${sessionScope.loginAccount.city}"/></td>
             </tr>
             <tr>
-                <td>State:</td>
+                <th>State:</th>
                 <td>
                     <input type="text" size="40" name="order.billState" value="${sessionScope.loginAccount.state}"/>
                 </td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <th>Zip:</th>
                 <td>
                     <input type="text" size="40" name="order.billZip" value="${sessionScope.loginAccount.zip}"/>
                 </td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <th>Country:</th>
                 <td>
                     <input type="text" size="40" name="order.billCountry" value="${sessionScope.loginAccount.country}"/>
                 </td>
             </tr>
 
+            <tr>&nbsp;</tr>
             <tr>
                 <td colspan=2>
                     <input type="checkbox" name="shippingAddressRequired" />
                     Ship to different address...
                 </td>
             </tr>
-
         </table>
 
-        <input type="submit" name="newOrder" value="Continue" />
+        <p><input type="submit" name="newOrder" value="Continue" /></p>
     </form>
 </div>
 

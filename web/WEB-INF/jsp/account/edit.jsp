@@ -8,12 +8,12 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="Catalog">
-    <form action="edit" method="post">
+    <form action="edit" method="post" id="registerForm">
         <h3>User Information</h3>
         <c:if test="${requestScope.editMsg != null}">
             <p><font color="red">${requestScope.editMsg}</font></p>
         </c:if>
-        <table>
+        <table id="table1">
             <tr>
                 <td>User ID:</td>
                 <td>${sessionScope.loginAccount.username}</td>
@@ -29,7 +29,12 @@
         </table>
         <%@ include file="includeAccount.jsp"%>
 
-        <input type="submit" value="Save Account Information">
+        <br>
+        <div id="save">
+            <p>
+                <input type="submit" value="Save Account Information" id="saveButton">
+            </p>
+        </div>
 
     </form>
     <a href="listOrderForm">My Orders</a>
