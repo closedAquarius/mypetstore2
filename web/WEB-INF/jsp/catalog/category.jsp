@@ -15,23 +15,19 @@
 
     <h2>${sessionScope.category.name}</h2>
 
-    <table class="show">
-        <thead>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+        </tr>
+        <c:forEach var="product" items="${sessionScope.productList}">
             <tr>
-                <th>Product ID</th>
-                <th>Name</th>
+                <td>
+                    <a href="productForm?productId=${product.productId}">${product.productId}</a>
+                </td>
+                <td>${product.name}</td>
             </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="product" items="${sessionScope.productList}">
-                <tr>
-                    <td>
-                        <a href="productForm?productId=${product.productId}">${product.productId}</a>
-                    </td>
-                    <td>${product.name}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
+        </c:forEach>
     </table>
 
 </div>

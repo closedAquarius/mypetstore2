@@ -13,37 +13,37 @@
 
 <div id="Catalog">
 
-    <table id="itemTable">
-        <tr id="firstTr">
+    <table>
+        <tr>
             <td>${sessionScope.product.description}</td>
         </tr>
-        <tr class="itemDetails">
+        <tr>
             <td><b> ${sessionScope.item.itemId} </b></td>
         </tr>
-        <tr class="itemDetails">
+        <tr>
             <td><b><font size="4"> ${sessionScope.item.attribute1}
                 ${sessionScope.item.attribute2} ${sessionScope.item.attribute3}
                 ${sessionScope.item.attribute4} ${sessionScope.item.attribute5}
                 ${sessionScope.product.name} </font></b></td>
         </tr>
-        <tr class="itemDetails">
+        <tr>
             <td>${sessionScope.product.name}</td>
         </tr>
-        <tr class="itemDetails">
+        <tr>
             <td><c:if test="${sessionScope.item.quantity <= 0}">
                 Back ordered.
             </c:if> <c:if test="${sessionScope.item.quantity > 0}">
                 ${sessionScope.item.quantity} in stock.
             </c:if></td>
         </tr>
-        <tr class="itemDetails">
+        <tr>
             <td><fmt:formatNumber value="${sessionScope.item.listPrice}"
                                   pattern="$#,##0.00" /></td>
         </tr>
 
-        <tr id="lastTr">
+        <tr>
             <td>
-                <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button"><p>Add to Cart</p></a>
+            <a href="addItemToCart?workingItemId=${sessionScope.item.itemId}" class="Button">Add to Cart</a>
             </td>
         </tr>
     </table>

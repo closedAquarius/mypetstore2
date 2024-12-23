@@ -15,13 +15,13 @@
 
     <h2>${sessionScope.product.name}</h2>
 
-    <table  class="show">
+    <table>
         <tr>
             <th>Item ID</th>
             <th>Product ID</th>
             <th>Description</th>
             <th>List Price</th>
-            <th>Operation</th>
+            <th>&nbsp;</th>
         </tr>
         <c:forEach var="item" items="${sessionScope.itemList}">
             <tr>
