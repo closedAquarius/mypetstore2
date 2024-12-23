@@ -19,11 +19,11 @@
                 <td>${sessionScope.loginAccount.username}</td>
             </tr>
             <tr>
-                <td>New password:</td>
+                <td>New Password:</td>
                 <td><input type="password" name="password"></td>
             </tr>
             <tr>
-                <td>Repeat password:</td>
+                <td>Repeat Password:</td>
                 <td><input type="password" name="repeatPassword"></td>
             </tr>
         </table>

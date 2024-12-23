@@ -13,7 +13,6 @@
 
 <div id="Catalog">
     Thank you, your order has been submitted.
-
     <table>
         <tr>
             <th align="center" colspan="2">Order #${sessionScope.order.orderId}

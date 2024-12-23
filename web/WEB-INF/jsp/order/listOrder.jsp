@@ -14,7 +14,6 @@
 
 <div id="Catalog">
     <h2>My Orders</h2>
-
     <table>
         <tr>
             <th>Order ID</th>

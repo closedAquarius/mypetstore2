@@ -14,22 +14,24 @@
 <div id="Catalog">
 
     <h2>${sessionScope.category.name}</h2>
-
-    <table>
-        <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-        </tr>
-        <c:forEach var="product" items="${sessionScope.productList}">
+    <table class="show">
+        <thead>
             <tr>
-                <td>
-                    <a href="productForm?productId=${product.productId}">${product.productId}</a>
-                </td>
-                <td>${product.name}</td>
+                <th>Product ID</th>
+                <th>Name</th>
             </tr>
-        </c:forEach>
+        </thead>
+        <tbody>
+            <c:forEach var="product" items="${sessionScope.productList}">
+                <tr>
+                    <td>
+                        <a href="productForm?productId=${product.productId}">${product.productId}</a>
+                    </td>
+                    <td>${product.name}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

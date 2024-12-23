@@ -13,7 +13,6 @@
             <tr>
                 <th colspan=2>Shipping Address</th>
             </tr>
-
             <tr>
                 <td>First name:</td>
                 <td>

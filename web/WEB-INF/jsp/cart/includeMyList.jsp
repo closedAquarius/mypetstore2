@@ -16,5 +16,4 @@
             </li>
         </c:forEach>
     </ul>
-
 </c:if>

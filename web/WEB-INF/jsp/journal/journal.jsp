@@ -9,7 +9,6 @@
 <div id="Catalog">
 
     <h2>My Journals</h2>
-
     <table>
         <tr>
             <th>Operation</th>
@@ -27,7 +26,6 @@
             </tr>
         </c:forEach>
     </table>
-
 
     <div id="Separator">&nbsp;</div>
 </div>

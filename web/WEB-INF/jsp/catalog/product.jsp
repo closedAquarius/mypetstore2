@@ -14,14 +14,13 @@
 <div id="Catalog">
 
     <h2>${sessionScope.product.name}</h2>
-
-    <table>
+    <table  class="show">
         <tr>
             <th>Item ID</th>
             <th>Product ID</th>
             <th>Description</th>
             <th>List Price</th>
-            <th>&nbsp;</th>
+            <th>Operation</th>
         </tr>
         <c:forEach var="item" items="${sessionScope.itemList}">
             <tr>

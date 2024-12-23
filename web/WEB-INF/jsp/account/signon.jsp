@@ -8,7 +8,8 @@
 <%@ include file="../common/top.jsp"%>
 
 <script>
-    function reloadCaptcha() {
+    function reloadCaptcha()
+    {
         // 获取验证码图片元素
         var captchaImage = document.getElementById('captchaImage');
         // 为图片添加一个时间戳参数，以确保每次都加载新的图片
