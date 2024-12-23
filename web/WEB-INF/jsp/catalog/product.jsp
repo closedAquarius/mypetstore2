@@ -14,7 +14,7 @@
 <div id="Catalog">
 
     <h2>${sessionScope.product.name}</h2>
-    <table  class="show">
+    <table class="show">
         <tr>
             <th>Item ID</th>
             <th>Product ID</th>

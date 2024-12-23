@@ -8,64 +8,63 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="Catalog">
-    <form action="newOrder?shipAddressSubmitted=true" method="post">
+    <form action="newOrder?shipAddressSubmitted=true" method="post" id="orderForm">
         <table>
             <tr>
                 <th colspan=2>Shipping Address</th>
             </tr>
             <tr>
-                <td>First name:</td>
+                <th>First name:</th>
                 <td>
                     <input type="text" name="order.shipToFirstName" value="${sessionScope.loginAccount.firstName}">
                 </td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <th>Last name:</th>
                 <td>
                     <input type="text" name="order.shipToLastName" value="${sessionScope.loginAccount.lastName}">
                 </td>
             </tr>
             <tr>
-                <td>Address 1:</td>
+                <th>Address 1:</th>
                 <td>
                     <input type="text" name="order.shipAddress1" size="40" value="${sessionScope.loginAccount.address1}">
                 </td>
             </tr>
             <tr>
-                <td>Address 2:</td>
+                <th>Address 2:</th>
                 <td>
                     <input type="text" name="order.shipAddress2" size="40" value="${sessionScope.loginAccount.address2}">
                 </td>
             </tr>
             <tr>
-                <td>City:</td>
+                <th>City:</th>
                 <td>
                     <input type="text" name="order.shipCity" value="${sessionScope.loginAccount.city}">
                 </td>
             </tr>
             <tr>
-                <td>State:</td>
+                <th>State:</th>
                 <td>
                     <input type="text" name="order.shipState" size="4" value="${sessionScope.loginAccount.state}">
                 </td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <th>Zip:</th>
                 <td>
                     <input type="text" name="order.shipZip" size="10" value="${sessionScope.loginAccount.zip}">
                 </td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <th>Country:</th>
                 <td>
                     <input type="text" name="order.shipCountry" size="15" value="${sessionScope.loginAccount.country}">
                 </td>
             </tr>
-
+            <tr>&nbsp;</tr>
         </table>
-        <br/>
 
-        <input type="submit" name="newOrder" value="Continue" />
+        <p><input type="submit" name="newOrder" value="Continue" /></p>
 
     </form>
 </div>

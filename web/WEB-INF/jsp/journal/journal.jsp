@@ -8,7 +8,7 @@
 <div id="Catalog">
 
     <h2>My Journals</h2>
-    <table>
+    <table class="show">
         <tr>
             <th>Operation</th>
             <th>Date</th>

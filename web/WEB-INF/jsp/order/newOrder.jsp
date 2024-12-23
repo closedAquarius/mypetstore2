@@ -9,13 +9,21 @@
 
 
 <div id="userAddresses">
+    <h3>Historical Addresses</h3>
+    <br>
     <div class="info" id="AutoAddress" style="display: none;"></div>
     <c:forEach var="address" items="${sessionScope.addresses}">
         <div id="address" class="address" data-addrid="${address.addressId}">
             <h4 id="adressId">${address.addressId}</h4>
-            <span><p>${address.address1}${address.address2}</p>
-                <a class="Button" id="choose" data-addrid="${address.addressId}">choose</a>
-                <a class="Button" id="delete" data-addrid="${address.addressId}">delete</a>
+            <span>
+                <p>${address.address1}${address.address2}</p>
+                    <a class="Button" id="choose" data-addrid="${address.addressId}">
+                        <input type="button" id="chooseButton" value="Choose">
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="Button" id="delete" data-addrid="${address.addressId}">
+                        <input type="button"  id="deleteButton" value="Delete">
+                    </a>
             </span>
         </div>
     </c:forEach>
@@ -23,7 +31,8 @@
 
 
 <div id="Catalog">
-    <form action="newOrder?newOrderFormSubmitted=true" method="post" id="orderForm"><table>
+    <form action="newOrder?newOrderFormSubmitted=true" method="post" id="orderForm">
+        <table>
             <tr>
                 <th colspan=2>Payment Details</th>
             </tr>

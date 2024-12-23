@@ -63,10 +63,21 @@ $(function (){
     });
     $('#AutoAddress').on('mouseleave', function(event) {
         let info=$('#info')
-        if (info.css('display') === 'block') {
+        if (info.css('display') === 'block')
+        {
+            let parentContainer = $('#userAddresses');  //父容器的选择器
+
+            //获取父容器相对于页面的偏移量
+            let parentOffset = parentContainer.offset(); // { top: 父容器的top, left: 父容器的left }
+
+            //计算鼠标在父容器中的相对位置
+            let relativeX = event.pageX - parentOffset.left;
+            let relativeY = event.pageY - parentOffset.top;
+
             info.css({
-                left: event.pageX + 10,
-                top: event.pageY + 10
+                left: relativeX + 10,
+                top: relativeY + 10,
+                animation: 'collapse 0.3s forwards'
             });
         }
         isOverInfo = false;
@@ -81,10 +92,20 @@ $(function (){
             type: 'GET',
             url: 'http://localhost:8080/mypetstore/changeAddress?addressId='+addressId+'&isDelete='+id,
             success: function (data) {
+                let parentContainer = $('#userAddresses');  //父容器的选择器
+
+                //获取父容器相对于页面的偏移量
+                let parentOffset = parentContainer.offset(); // { top: 父容器的top, left: 父容器的left }
+
+                //计算鼠标在父容器中的相对位置
+                let relativeX = event.pageX - parentOffset.left;
+                let relativeY = event.pageY - parentOffset.top;
+
                 AutoAddress.css({
                     display: 'block',
-                    left: event.pageX + 10,
-                    top: event.pageY + 10
+                    left: relativeX + 10,
+                    top: relativeY + 10,
+                    animation: 'expand 0.6s forwards'
                 });
                 let AutoAddressHTML='<li class="Auto">'+
                     +data.firstName+' '+data.lastName
@@ -98,18 +119,34 @@ $(function (){
                     +'<li class="Auto">'
                     +'<a class="Button" id="setMain" data-addrid="'+addressId+'">Set Main</a>';
                 AutoAddress.html(AutoAddressHTML);
-                AutoAddress.show();
+                setTimeout(function () {
+                    fadeInText(AutoAddress.find('li')); // 调用淡入函数
+                }, 600); // 延迟时间与提示框动画时间一致
             }
         });
     });
 
     $('#userAddresses').on('mouseleave','#address',function () {
         let AutoAddress=$('#AutoAddress');
-        if (isOverInfo){
+        if (!isOverInfo){
             AutoAddress.css({
                 display: 'none',
             });
             AutoAddress.hide();
         }
     });
+
+    // 淡入文字的函数
+    function fadeInText(elements) {
+        elements.each(function (index, element) {
+            let opacity = 0;
+            let interval = setInterval(function () {
+                opacity += 0.1; // 每次增加 0.1 的透明度
+                $(element).css('opacity', opacity); // 设置透明度
+                if (opacity >= 1) {
+                    clearInterval(interval); // 当透明度达到 1 时，停止递增
+                }
+            }, 30); // 每30毫秒更新一次
+        });
+    }
 });

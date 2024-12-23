@@ -12,11 +12,11 @@
 </div>
 
 <div id="Catalog">
-    Please confirm the information below and then press continue...
-    <form action="newOrder?confirmed=true" method="post">
+    <p id="confirmOrderTips">Please confirm the information below and then press continue...</p>
+    <form action="newOrder?confirmed=true" method="post" id="confirmOrderForm">
         <table>
             <tr>
-                <th align="center" colspan="2">
+                <th align="center" colspan="4">
                     <font size="4"><b>Order</b></font><br>
                     <font size="3">
                         <b><fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" /></b>
@@ -25,77 +25,63 @@
             </tr>
 
             <tr>
-                <th colspan="2">Billing Address</th>
+                <th colspan="4">Billing Address</th>
             </tr>
             <tr>
-                <td>First name:</td>
+                <th>First name:</th>
                 <td><c:out value="${sessionScope.order.billToFirstName}" /></td>
-            </tr>
-            <tr>
-                <td>Last name:</td>
-                <td><c:out value="${sessionScope.order.billToLastName}" /></td>
-            </tr>
-            <tr>
-                <td>Address 1:</td>
-                <td><c:out value="${sessionScope.order.billAddress1}" /></td>
-            </tr>
-            <tr>
-                <td>Address 2:</td>
-                <td><c:out value="${sessionScope.order.billAddress2}" /></td>
-            </tr>
-            <tr>
-                <td>City:</td>
+                <th>City:</th>
                 <td><c:out value="${sessionScope.order.billCity}" /></td>
             </tr>
             <tr>
-                <td>State:</td>
+                <th>Last name:</th>
+                <td><c:out value="${sessionScope.order.billToLastName}" /></td>
+                <th>State:</th>
                 <td><c:out value="${sessionScope.order.billState}" /></td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <th>Address 1:</th>
+                <td><c:out value="${sessionScope.order.billAddress1}" /></td>
+                <th>Zip:</th>
                 <td><c:out value="${sessionScope.order.billZip}" /></td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <th>Address 2:</th>
+                <td><c:out value="${sessionScope.order.billAddress2}" /></td>
+                <th>Country:</th>
                 <td><c:out value="${sessionScope.order.billCountry}" /></td>
             </tr>
             <tr>
-                <th colspan="2">Shipping Address</th>
+                <th colspan="4">Shipping Address</th>
             </tr>
             <tr>
-                <td>First name:</td>
+                <th>First name:</th>
                 <td><c:out value="${sessionScope.order.shipToFirstName}" /></td>
-            </tr>
-            <tr>
-                <td>Last name:</td>
-                <td><c:out value="${sessionScope.order.shipToLastName}" /></td>
-            </tr>
-            <tr>
-                <td>Address 1:</td>
-                <td><c:out value="${sessionScope.order.shipAddress1}" /></td>
-            </tr>
-            <tr>
-                <td>Address 2:</td>
-                <td><c:out value="${sessionScope.order.shipAddress2}" /></td>
-            </tr>
-            <tr>
-                <td>City:</td>
+                <th>City:</th>
                 <td><c:out value="${sessionScope.order.shipCity}" /></td>
             </tr>
             <tr>
-                <td>State:</td>
+                <th>Last name:</th>
+                <td><c:out value="${sessionScope.order.shipToLastName}" /></td>
+                <th>State:</th>
                 <td><c:out value="${sessionScope.order.shipState}" /></td>
             </tr>
             <tr>
-                <td>Zip:</td>
+                <th>Address 1:</th>
+                <td><c:out value="${sessionScope.order.shipAddress1}" /></td>
+                <th>Zip:</th>
                 <td><c:out value="${sessionScope.order.shipZip}" /></td>
             </tr>
             <tr>
-                <td>Country:</td>
+                <th>Address 2:</th>
+                <td><c:out value="${sessionScope.order.shipAddress2}" /></td>
+                <th>Country:</th>
                 <td><c:out value="${sessionScope.order.shipCountry}" /></td>
             </tr>
+            <tr>&nbsp;</tr>
         </table>
-        <input type="submit" name="newOrder" value="Confirm"/>
+
+        <p><input type="submit" name="newOrder" value="Confirm"/></p>
     </form>
     <%@ include file="../common/bottom.jsp"%>
 

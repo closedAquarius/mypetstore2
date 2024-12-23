@@ -66,7 +66,8 @@
                             <c:if test="${sessionScope.cart.numberOfItems > 0}">
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="newOrderForm" class="Button">
-                                    <span>Proceed to Checkout</span>
+                                    <!--<div>Proceed to Checkout</div>-->
+                                    <input type="button" value="Proceed to Checkout">
                                 </a>
                             </c:if>
                         </p>
@@ -76,6 +77,7 @@
         </form>
     </div>
 
+    <br><br>
     <div id="MyList">
         <c:if test="${sessionScope.loginAccount != null}">
             <c:if test="${!empty sessionScope.loginAccount.listOption}">
