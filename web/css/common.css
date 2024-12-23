@@ -111,6 +111,11 @@
     transform: translateX(-50%);
 }
 
+#Catalog th, td
+{
+    white-space: nowrap;
+}
+
 #Catalog #signOnForm #signOnTitle
 {
     font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
@@ -374,6 +379,53 @@
 {
     cursor: pointer;
     text-decoration: underline;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"]
+{
+    background-color: white;
+    height: 80px;
+    text-align: center;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input, #Catalog #Cart table[class="show"] tr[id="cartButton"] .Button span
+{
+    width: 300px;
+    height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input
+{
+    background-color: #FFE699;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button span
+{
+    background-color: #94B286;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button
+{
+    text-decoration: none;
+    color: white;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button span:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 #Catalog #itemTable

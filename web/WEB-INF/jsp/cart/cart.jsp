@@ -12,7 +12,7 @@
         <h2>Shopping Cart</h2>
 
         <form action="updateCart" method="post">
-            <table id="table">
+            <table id="table" class="show">
                 <tr>
                     <th><b>Item ID</b></th>
                     <th><b>Product ID</b></th>
@@ -33,12 +33,12 @@
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
                     <tr id="cartItem">
                         <td>
-                        <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+                            <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
                         </td>
                         <td>${cartItem.item.product.productId}</td>
                         <td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
                                 ${cartItem.item.attribute3} ${cartItem.item.attribute4}
-                                ${cartItem.item.attribute5} ${cartItem.item.product.name}<</td>
+                                ${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
                         <td>${cartItem.inStock}</td>
                         <td>
                             <input type="text"  data-itemId="${cartItem.item.itemId}" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
@@ -54,15 +54,26 @@
                 </c:forEach>
                 <tr>
                     <td colspan="8">
-                        <div id="subTotal">Sub Total:<fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" /></div>
-                        <input type="submit" value="Update Cart">
+                        <p id="subTotal" style="font-weight: bold; text-align: center">
+                            Sub Total:<fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
+                        </p>
+                    </td>
+                </tr>
+                <tr id="cartButton">
+                    <td colspan="8">
+                        <p style="text-align: center">
+                            <input type="submit" value="Update Cart">
+                            <c:if test="${sessionScope.cart.numberOfItems > 0}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="newOrderForm" class="Button">
+                                    <span>Proceed to Checkout</span>
+                                </a>
+                            </c:if>
+                        </p>
                     </td>
                 </tr>
             </table>
         </form>
-        <c:if test="${sessionScope.cart.numberOfItems > 0}">
-            <a href="newOrderForm" class="Button">Proceed to Checkout</a>
-    </c:if>
     </div>
 
     <div id="MyList">
