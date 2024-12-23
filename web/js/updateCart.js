@@ -14,12 +14,14 @@ $(function (){
             success:function (data){
                 if(quantity == 0){
                     $row.remove();
-                }
-                else{
+                    alert('delete success');
+                }else{
                     $totalDiv.text(data['cartItemTotal']);
+                    alert('update success')
                 }
                 $('#subTotal').text('Sub Total:'+data['subTotal']);
             }
         });
     });
+
 })

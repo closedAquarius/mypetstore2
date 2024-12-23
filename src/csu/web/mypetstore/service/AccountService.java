@@ -2,10 +2,13 @@ package csu.web.mypetstore.service;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Item;
+import csu.web.mypetstore.domain.UserAddress;
 import csu.web.mypetstore.persistence.AccountDao;
 import csu.web.mypetstore.persistence.JournalDao;
+import csu.web.mypetstore.persistence.UserAddressDao;
 import csu.web.mypetstore.persistence.impl.AccountDaoImpl;
 import csu.web.mypetstore.persistence.impl.JournalDaoImpl;
+import csu.web.mypetstore.persistence.impl.UserAddressDaoImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -25,8 +28,10 @@ public class AccountService{
         CATEGORY_LIST = Arrays.asList("FISH", "DOGS", "REPTILES", "CATS", "BIRDS");
     }
     private AccountDao accountDao;
+    private UserAddressDao userAddressDao;
     public AccountService(){
         this.accountDao = new AccountDaoImpl();
+        this.userAddressDao = new UserAddressDaoImpl();
     }
 
     public List<String> getLanguages() {
@@ -134,5 +139,43 @@ public class AccountService{
             String loginOutString = "User "+ account.getUsername() + " logged out.";
             journalDao.updateJournal(account.getUsername(), loginOutString, currentDate, "#4472C4");
         }
+    }
+
+    public List<UserAddress> getAllAddressByUsername(String username){
+        List<UserAddress> userAddress = userAddressDao.getUserAddress(username);
+        return userAddress;
+    }
+
+    public UserAddress getUserAddressByAddressId(String username,String addressId) {
+        List<UserAddress> userOKAddressByUsername = getUserOKAddressByUsername(username);
+        for (UserAddress userAddress : userOKAddressByUsername) {
+            if (userAddress.getAddressId().equals(addressId)) {
+                return userAddress;
+            }
+        }
+        return null;
+    }
+    public List<UserAddress> getUserOKAddressByUsername(String username){
+        List<UserAddress> userAddress = getAllAddressByUsername(username);
+        List<UserAddress> userAddressOK = new ArrayList<>();
+        for (UserAddress userAddress1 : userAddress) {
+            if (userAddress1.getStatus()!=null&&userAddress1.getStatus().equals("OK")) {
+                userAddressOK.add(userAddress1);
+            }
+        }
+        return userAddressOK;
+    }
+
+
+    public void deleteUserAddress(String username, String addressId){
+        userAddressDao.deleteUserAddress(username, addressId);
+    }
+
+    public void insertUserAddress(UserAddress userAddress){
+        userAddressDao.addUserAddress(userAddress);
+    }
+
+    public void upadteUserMainAddress(String username,String addressId){
+        userAddressDao.updateMainAddress(username,addressId);
     }
 }

@@ -46,7 +46,7 @@
                         <td><fmt:formatNumber value="${cartItem.item.listPrice}"
                                               pattern="$#,##0.00" /></td>
                         <td><div class="total"><fmt:formatNumber value="${cartItem.total}"
-                                              pattern="$#,##0.00" /></div></td>
+                                                                 pattern="$#,##0.00" /></div></td>
                         <td>
                             <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
