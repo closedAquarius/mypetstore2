@@ -445,6 +445,8 @@
 #Catalog #orderForm
 {
     line-height: 35px;
+    position: relative;
+    top: -40px;
 }
 
 #Catalog #orderForm table
