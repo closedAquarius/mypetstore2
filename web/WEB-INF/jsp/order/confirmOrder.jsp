@@ -10,6 +10,7 @@
 <div id="BackLink">
     <a href="mainForm">Return to Main Menu</a>
 </div>
+<script src="js/adjustTopPosition.js"></script>
 
 <div id="Catalog">
     <p id="confirmOrderTips">Please confirm the information below and then press continue...</p>

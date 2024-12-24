@@ -10,6 +10,7 @@
 <div id="BackLink">
     <a href="productForm?productId=${sessionScope.product.productId}">Return to ${sessionScope.product.name}</a>
 </div>
+<script src="js/adjustTopPosition.js"></script>
 
 <div id="Catalog">
 

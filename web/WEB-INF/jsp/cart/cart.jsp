@@ -4,6 +4,7 @@
 <div id="BackLink">
     <a href="mainForm">Return to Main Menu</a>
 </div>
+<script src="js/adjustTopPosition.js"></script>
 
 <div id="Catalog">
 
