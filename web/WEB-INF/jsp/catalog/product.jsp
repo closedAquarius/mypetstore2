@@ -37,8 +37,10 @@
                 </td>
             </tr>
         </c:forEach>
+        <tr id="productImage">
+            <td colspan="5"><p>${sessionScope.product.description}</p></td>
+        </tr>
     </table>
-
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

@@ -75,7 +75,7 @@ $(function (){
             let relativeY = event.pageY - parentOffset.top;
 
             info.css({
-                left: relativeX + 10,
+                left: 360,
                 top: relativeY + 10,
                 animation: 'collapse 0.3s forwards'
             });
@@ -103,7 +103,7 @@ $(function (){
 
                 AutoAddress.css({
                     display: 'block',
-                    left: relativeX + 10,
+                    left: 360,
                     top: relativeY + 10,
                     animation: 'expand 0.6s forwards'
                 });

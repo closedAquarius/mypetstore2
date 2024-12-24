@@ -34,4 +34,25 @@
     </table>
 </div>
 
+<c:choose>
+    <c:when test="${sessionScope.category.name == 'Fish'}">
+        <img src="images/fishBackground.png" alt="Fish" id="background">
+    </c:when>
+    <c:when test="${sessionScope.category.name == 'Dogs'}">
+        <img src="images/dogBackground.png" alt="Dogs" id="background">
+    </c:when>
+    <c:when test="${sessionScope.category.name == 'Cats'}">
+        <img src="images/catBackground.png" alt="Cats" id="background">
+    </c:when>
+    <c:when test="${sessionScope.category.name == 'Birds'}">
+        <img src="images/birdBackground.png" alt="Birds" id="background">
+    </c:when>
+    <c:when test="${sessionScope.category.name == 'Reptiles'}">
+        <img src="images/reptileBackground.png" alt="Reptiles" id="background">
+    </c:when>
+    <c:otherwise>
+        <img src="images/defaultBackground.png" alt="Default" id="background">
+    </c:otherwise>
+</c:choose>
+
 <%@ include file="../common/bottom.jsp"%>

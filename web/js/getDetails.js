@@ -36,7 +36,7 @@ $(function (){
     {
         let info=$('#info')
 
-        let parentContainer = $('#Content');  //父容器的选择器
+        let parentContainer = $('#MainImage');  //父容器的选择器
 
         //获取父容器相对于页面的偏移量
         let parentOffset = parentContainer.offset(); // { top: 父容器的top, left: 父容器的left }
@@ -79,7 +79,7 @@ $(function (){
             url:     'http://localhost:8080/mypetstore/getDetails?categoryId='+categoryId,
             success :function (data){
                 if(data !== null){
-                    let parentContainer = $('#Content');  //父容器的选择器
+                    let parentContainer = $('#MainImage');  //父容器的选择器
 
                     //获取父容器相对于页面的偏移量
                     let parentOffset = parentContainer.offset(); // { top: 父容器的top, left: 父容器的left }

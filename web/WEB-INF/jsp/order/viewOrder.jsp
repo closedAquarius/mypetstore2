@@ -12,9 +12,13 @@
 </div>
 
 <div id="Catalog">
-    <p id="confirmOrderTips">Thank you, your order has been submitted.</p>
-    <div id="confirmOrderForm">
+    <form id="confirmOrderForm">
         <table>
+            <tr>
+                <td colspan="4" id="successInfo">
+                    <p>Thank you, your order has been submitted.</p>
+                </td>
+            </tr>
             <tr>
                 <th align="center" colspan="4">Order #${sessionScope.order.orderId}
                     <fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
@@ -138,54 +142,48 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
-                    <table>
-                        <tr>
-                            <th>Item ID</th>
-                            <th>Description</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                        <c:forEach var="lineItem" items="${sessionScope.order.lineItems}">
-                            <tr>
-                                <td>
-                                    <a href="itemForm?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
-                                </td>
-                                <td>
-                                    <c:if test="${lineItem.item != null}">
-                                        ${lineItem.item.attribute1}
-                                        ${lineItem.item.attribute2}
-                                        ${lineItem.item.attribute3}
-                                        ${lineItem.item.attribute4}
-                                        ${lineItem.item.attribute5}
-                                        ${lineItem.item.product.name}
-                                    </c:if> <c:if test="${lineItem.item == null}">
-                                    <i>{description unavailable}</i>
-                                </c:if>
-                                </td>
-
-                                <td>${lineItem.quantity}</td>
-                                <td>
-                                    <fmt:formatNumber value="${lineItem.unitPrice}"
-                                                      pattern="$#,##0.00" />
-                                </td>
-                                <td>
-                                    <fmt:formatNumber value="${lineItem.total}"
-                                                      pattern="$#,##0.00" />
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        <tr>
-                            <th colspan="5">
-                                Total: <fmt:formatNumber
-                                    value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" />
-                            </th>
-                        </tr>
-                    </table>
-                </td>
+                <th colspan="4">Purchased Items</th>
+            </tr>
+            <tr>
+                <th>Item ID</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <c:forEach var="lineItem" items="${sessionScope.order.lineItems}">
+                <tr>
+                    <td>
+                        <a href="itemForm?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
+                    </td>
+                    <td>
+                        <c:if test="${lineItem.item != null}">
+                            ${lineItem.item.attribute1}
+                            ${lineItem.item.attribute2}
+                            ${lineItem.item.attribute3}
+                            ${lineItem.item.attribute4}
+                            ${lineItem.item.attribute5}
+                            ${lineItem.item.product.name}
+                        </c:if> <c:if test="${lineItem.item == null}">
+                        <i>{description unavailable}</i>
+                    </c:if>
+                    </td>
+                    <td style="text-align: center">${lineItem.quantity}</td>
+                    <td style="text-align: center">
+                        <fmt:formatNumber value="${lineItem.unitPrice}"
+                                          pattern="$#,##0.00" />
+                    </td>
+                    <!--<td><fmt:formatNumber value="${lineItem.total}" pattern="$#,##0.00" /></td>-->
+                </tr>
+            </c:forEach>
+            <tr>
+                <th colspan="4">
+                    Total: <fmt:formatNumber
+                        value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" />
+                </th>
             </tr>
         </table>
-    </div>
+        <div id="bottomSpace"></div>
+    </form>
 </div>
 
 <%@ include file="../common/bottom.jsp"%>

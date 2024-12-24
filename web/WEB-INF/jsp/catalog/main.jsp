@@ -17,19 +17,43 @@
 
 <div id="Main">
     <div id="Sidebar">
-        <div id="SidebarContent">
-            <a href="categoryForm?categoryId=FISH"><img src="images/fish_icon.gif" /></a><br />
-            Saltwater, Freshwater <br />
-            <a href="categoryForm?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a><br/>
-            Various Breeds <br />
-            <a href="categoryForm?categoryId=CATS"><img src="images/cats_icon.gif" /></a><br/>
-            Various Breeds, Exotic Varieties <br />
-            <a href="categoryForm?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></a><br/>
-            Lizards, Turtles, Snakes <br />
-            <a href="categoryForm?categoryId=DOGS"><img src="images/birds_icon.gif" /></a><br/>
-            Exotic Varieties <br />
-            <p><a href="categoryForm?categoryId=${sessionScope.allCategories}">${sessionScope.allCategories}</a> is gaining more attention</p>
-        </div>
+        <ul id="SidebarContent">
+            <li>
+                <a href="categoryForm?categoryId=FISH">
+                    <p>Fish  <span>Saltwater, Freshwater</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="categoryForm?categoryId=DOGS">
+                    <p>Dogs  <span>Various Breeds</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="categoryForm?categoryId=CATS">
+                    <p>Cats  <span>Various Breeds, Exotic Varieties</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="categoryForm?categoryId=REPTILES">
+                    <p>Reptiles  <span>Lizards, Turtles, Snakes</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="categoryForm?categoryId=BIRDS">
+                    <p>Birds  <span>Exotic Varieties</span></p>
+                </a>
+            </li>
+            <li id="suggestion">
+                <a href="categoryForm?categoryId=${sessionScope.allCategories}">
+                    <p style="text-align: center">
+                        Today's Suggestion<br>
+                        <span>
+                            ${sessionScope.allCategories} is gaining more attention
+                        </span>
+                    </p>
+                </a>
+            </li>
+        </ul>
     </div>
 
     <div id="MainImage">

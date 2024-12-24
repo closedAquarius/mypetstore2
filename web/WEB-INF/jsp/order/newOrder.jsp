@@ -10,7 +10,6 @@
 
 <div id="userAddresses">
     <h3>Historical Addresses</h3>
-    <br>
     <div class="info" id="AutoAddress" style="display: none;"></div>
     <c:forEach var="address" items="${sessionScope.addresses}">
         <div id="address" class="address" data-addrid="${address.addressId}">
@@ -109,7 +108,6 @@
                     <input type="text" size="40" id="country" name="order.billCountry" value="${sessionScope.loginAccount.country}"/>
                 </td>
             </tr>
-            <tr>&nbsp;</tr>
             <tr>
                 <td colspan=2>
                     <input type="checkbox" name="shippingAddressRequired" />

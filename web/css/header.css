@@ -7,7 +7,6 @@
 #Header
 {
     width: 100%;
-    background-color: yellowgreen;
     position: absolute;
     top: 0;
 }
@@ -30,6 +29,12 @@
     height: 100%;
     width: auto;
     left: 10%;
+}
+
+#Menu #Logo #LogoContent a img
+{
+    position: relative;
+    top: 8px;
 }
 
 #Menu #MenuContent
@@ -110,6 +115,12 @@
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#QuickLinks img
+{
+    position: relative;
+    top: -5px;
 }
 
 #QuickLinks p

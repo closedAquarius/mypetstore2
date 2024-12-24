@@ -34,12 +34,14 @@
             <p>
                 <input type="submit" value="Save Account Information" id="saveButton">
             </p>
+            <p>
+                <a href="listOrderForm"><input type="button" value="My Orders" id="listOrderButton"></a>
+                &nbsp;
+                <a href="journalForm"><input type="button" value="My Journals" id="listJournalsButton"></a>
+            </p>
         </div>
 
     </form>
-    <a href="listOrderForm">My Orders</a>
-    &nbsp;&nbsp;
-    <a href="journalForm">My Journals</a>
 </div>
 
 

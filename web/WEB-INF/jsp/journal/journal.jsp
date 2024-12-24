@@ -24,6 +24,8 @@
                 </td>
             </tr>
         </c:forEach>
+
+        <tr style="height: 130px; background-color: white">&nbsp;</tr>
     </table>
 
     <div id="Separator">&nbsp;</div>

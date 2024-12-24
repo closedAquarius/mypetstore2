@@ -17,10 +17,7 @@
         <table>
             <tr>
                 <th align="center" colspan="4">
-                    <font size="4"><b>Order</b></font><br>
-                    <font size="3">
-                        <b><fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" /></b>
-                    </font>
+                   Order <fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
                 </th>
             </tr>
 
