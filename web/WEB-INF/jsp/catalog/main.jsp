@@ -81,7 +81,6 @@
     </div>
 
     <div id="Separator">&nbsp;</div>
-
 </div>
 <script src="js/getDetails.js"></script>
 <%@ include file="../common/bottom.jsp"%>

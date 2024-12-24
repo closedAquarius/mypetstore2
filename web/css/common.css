@@ -1,7 +1,7 @@
 #Content
 {
     width: 100%;
-    height: 60%;
+    height: 80%;
     position: absolute;
     top: 20%;
 }
@@ -801,17 +801,19 @@
     border: none;
 }
 
-#userAddresses .address #setMainButton{
+#userAddresses .address #setMainButton
+{
     height: 30px;
     width: 80px;
-    background-color: #FF4500;
+    background-color: #F5D886;
     color: white;
     font-weight: bold;
     border-radius: 5px;
     border: none;
 }
 
-#userAddresses .address #deleteButton:hover, #userAddresses .address #chooseButton:hover
+#userAddresses .address #deleteButton:hover, #userAddresses .address #chooseButton:hover,
+#userAddresses .address #setMainButton:hover
 {
     cursor: pointer;
     opacity: 0.8;

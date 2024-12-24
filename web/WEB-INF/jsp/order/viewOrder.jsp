@@ -182,7 +182,6 @@
                 </th>
             </tr>
         </table>
-        <div id="bottomSpace"></div>
     </form>
 </div>
 

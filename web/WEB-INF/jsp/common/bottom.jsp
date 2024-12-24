@@ -14,5 +14,6 @@
     </div>
 </div>
 <script src="js/productAuto.js"></script>
+<script src="js/adjustContentHeight.js"></script>
 </body>
 </html>

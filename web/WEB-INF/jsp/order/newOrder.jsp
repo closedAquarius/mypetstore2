@@ -21,7 +21,7 @@
                     </a>
                     &nbsp;&nbsp;&nbsp;
                     <a class="Button" id="setMain" data-addrid="${address.addressId}">
-                        <input type="button" id="setMainButton" value="set main">
+                        <input type="button" id="setMainButton" value="Set Main">
                     </a>
                     &nbsp;&nbsp;&nbsp;
                     <a class="Button" id="delete" data-addrid="${address.addressId}">
