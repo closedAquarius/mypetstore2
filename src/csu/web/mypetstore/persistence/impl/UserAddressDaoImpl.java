@@ -39,7 +39,8 @@ public class UserAddressDaoImpl implements UserAddressDao {
             "      CITY = ?,\n" +
             "      STATE = ?,\n" +
             "      ZIP = ?,\n" +
-            "      COUNTRY = ?,\n";
+            "      COUNTRY = ?\n"+
+            "WHERE USERID = ?";
 
     @Override
     public void addUserAddress(UserAddress userAddress) {
@@ -131,6 +132,8 @@ public class UserAddressDaoImpl implements UserAddressDao {
                     preparedStatement.setString(6, userAddress1.getState());
                     preparedStatement.setString(7, userAddress1.getZip());
                     preparedStatement.setString(8, userAddress1.getCountry());
+                    preparedStatement.setString(9, username);
+                    preparedStatement.executeUpdate();
                 }
             }
             preparedStatement.close();
@@ -140,9 +143,10 @@ public class UserAddressDaoImpl implements UserAddressDao {
         }
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         UserAddressDao userAddressDao=new UserAddressDaoImpl();
-        List<UserAddress> j2ee = userAddressDao.getUserAddress("j2ee");
-        System.out.println(j2ee.get(0).getAddressId());
-    }
+        *//*List<UserAddress> j2ee = userAddressDao.getUserAddress("j2ee");
+        System.out.println(j2ee.get(0).getAddressId());*//*
+        userAddressDao.updateMainAddress("j2ee","3");
+    }*/
 }

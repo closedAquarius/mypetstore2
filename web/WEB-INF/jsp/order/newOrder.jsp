@@ -20,6 +20,10 @@
                         <input type="button" id="chooseButton" value="Choose">
                     </a>
                     &nbsp;&nbsp;&nbsp;
+                    <a class="Button" id="setMain" data-addrid="${address.addressId}">
+                        <input type="button" id="setMainButton" value="set main">
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
                     <a class="Button" id="delete" data-addrid="${address.addressId}">
                         <input type="button"  id="deleteButton" value="Delete">
                     </a>

@@ -107,7 +107,7 @@ $(function (){
                     top: relativeY + 10,
                     animation: 'expand 0.6s forwards'
                 });
-                let AutoAddressHTML='<li class="Auto">'+
+                let AutoAddressHTML='<li class="Auto">'
                     +data.firstName+' '+data.lastName
                     +'</li>'
                     +'<li class="Auto">'
@@ -115,9 +115,7 @@ $(function (){
                     +'</li>'
                     +'<li class="Auto">'
                     +data.city+' | '+data.state+' | '+data.zip+' | '+data.country
-                    +'</li>'
-                    +'<li class="Auto">'
-                    +'<a class="Button" id="setMain" data-addrid="'+addressId+'">Set Main</a>';
+                    +'</li>';
                 AutoAddress.html(AutoAddressHTML);
                 setTimeout(function () {
                     fadeInText(AutoAddress.find('li')); // 调用淡入函数

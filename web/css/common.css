@@ -801,6 +801,16 @@
     border: none;
 }
 
+#userAddresses .address #setMainButton{
+    height: 30px;
+    width: 80px;
+    background-color: #FF4500;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
 #userAddresses .address #deleteButton:hover, #userAddresses .address #chooseButton:hover
 {
     cursor: pointer;

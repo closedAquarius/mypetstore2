@@ -9,9 +9,12 @@
 
 <div id="Welcome">
     <div id="WelcomeContent">
-        <c:if test="${sessionScope.loginAccount != null }">
-                Welcome ${sessionScope.loginAccount.firstName}!
-        </c:if>
+        <span><a id="WelcomeText"></a>
+            <c:if test="${sessionScope.loginAccount != null }">
+                ${sessionScope.loginAccount.firstName}
+            </c:if>
+            <a>!</a>
+        </span>
     </div>
 </div>
 
