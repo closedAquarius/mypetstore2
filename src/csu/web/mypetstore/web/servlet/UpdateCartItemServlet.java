@@ -51,7 +51,7 @@ public class UpdateCartItemServlet extends HttpServlet {
         {
             e.printStackTrace();
         }
-        Cart newCart = cartDao.getCart(account.getUsername());
+        Cart newCart = cartDao.getCart(account.getUsername());git remote remove origin
         session.setAttribute("cart", newCart);
         System.out.println(newCart.getSubTotal());
         //返回更新后的购物车项总价和购物车总价
