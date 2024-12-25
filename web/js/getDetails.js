@@ -1,13 +1,13 @@
 function greet() {
     const hour = new Date().getHours(); // 获取当前小时数
     if (hour >= 4 && hour < 11) {
-        return "good morning";
+        return "Good morning";
     }else if (hour >= 11 && hour < 14) {
-        return "good noon!";
+        return "Good noon!";
     } else if (hour >= 14 && hour < 18) {
-        return "good afternoon";
+        return "Good afternoon";
     } else if (hour >= 18 || hour < 4) {
-        return "good evening";
+        return "Good evening";
     } else {
         console.log("时间不在下午或晚上，请重新输入");
     }

@@ -13,7 +13,6 @@
             <c:if test="${sessionScope.loginAccount != null }">
                 ${sessionScope.loginAccount.firstName}
             </c:if>
-            <a>!</a>
         </span>
     </div>
 </div>

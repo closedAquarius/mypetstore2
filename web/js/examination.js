@@ -18,7 +18,57 @@ function checkPassword(password) {
     return '';
 }
 
+function adjustPosition()
+{
+    let username = $('#username');
+    let usernameOffset = username.offset();
+
+    let password = $('#password');
+    let passwordOffset = password.offset();
+
+    let repeatPassword = $('#repeatPassword');
+    let repeatPasswordOffset = repeatPassword.offset();
+
+    let email = $('#email');
+    let emailOffset = email.offset();
+
+    let registerForm = $('#registerForm');
+    let registerFormOffset = registerForm.offset();
+
+    let usernameFeedback = $('#usernameFeedback');
+    let passwordFeedback=$('#passwordFeedback');
+    let repeatPasswordFeedback=$('#repeatPasswordFeedback');
+    let emailFeedback=$('#emailFeedback');
+
+    usernameFeedback.css(
+        {
+            top: usernameOffset.top - registerFormOffset.top,
+            left: usernameOffset.left - registerFormOffset.left + 265,
+        }
+    )
+    passwordFeedback.css(
+        {
+            top: passwordOffset.top - registerFormOffset.top,
+            left: passwordOffset.left - registerFormOffset.left + 265,
+        }
+    )
+    repeatPasswordFeedback.css(
+        {
+            top: repeatPasswordOffset.top - registerFormOffset.top,
+            left: repeatPasswordOffset.left - registerFormOffset.left + 265,
+        }
+    )
+    emailFeedback.css(
+        {
+            top: emailOffset.top - registerFormOffset.top,
+            left: emailOffset.left - registerFormOffset.left - 250,
+        }
+    )
+}
+
 $(function (){
+
+    adjustPosition();
 
     $('#username').on('blur',function (){
         let usernameFeedback = $('#usernameFeedback');

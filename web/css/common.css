@@ -387,6 +387,14 @@
     opacity: 0.8;
 }
 
+#Catalog #registerForm #usernameFeedback, #Catalog #registerForm #passwordFeedback,
+#Catalog #registerForm #repeatPasswordFeedback, #Catalog #registerForm #emailFeedback
+{
+    color: #C00000;
+    line-height: 35px;
+    position: absolute;
+}
+
 #Catalog h2
 {
     text-align: center;
